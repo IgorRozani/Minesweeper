@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Cell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatusEnum.cs" />
+    <Compile Include="Enumerators\StatusEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Minesweeper.Library\Minesweeper.Library.csproj">

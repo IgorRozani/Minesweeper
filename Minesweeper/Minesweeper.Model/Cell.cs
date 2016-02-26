@@ -1,4 +1,5 @@
 ﻿using Minesweeper.Library.Exceptions;
+using Minesweeper.Model.Enumerators;
 
 namespace Minesweeper.Model
 {
