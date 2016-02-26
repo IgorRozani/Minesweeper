@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Minesweeper.Model;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Minesweeper.Library.Exceptions;
+using Minesweeper.Model;
 
 namespace Minesweeper.Test
 {
