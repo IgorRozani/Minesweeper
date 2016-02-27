@@ -8,24 +8,43 @@ namespace Minesweeper.Test
     [TestClass]
     public class CellTest
     {
-        [TestMethod]
-        public void CreateCellWithBomb()
+        private Cell cell;
+
+        [TestInitialize]
+        public void Initialize()
         {
-            var cell = new Cell(true);
-            Assert.IsTrue(cell.HasBomb && cell.Status == StatusEnum.Untouched);
+            cell = new Cell();
         }
 
         [TestMethod]
-        public void CreateCellWithoutBomb()
+        public void CheckUntouchedCell()
         {
-            var cell = new Cell(false);
-            Assert.IsTrue(!cell.HasBomb && cell.Status == StatusEnum.Untouched);
+            Assert.AreEqual(cell.Status, StatusEnum.Untouched);
+        }
+
+        [TestMethod]
+        public void ConfigureCellWithBomb()
+        {
+            cell.Configure(true, 0);
+            Assert.IsTrue(cell.HasBomb);
+        }
+
+        public void ConfigureCellWithoutBomb()
+        {
+            cell.Configure(false, 0);
+            Assert.IsFalse(cell.HasBomb);
+        }
+
+        [TestMethod]
+        public void ConfigureCellWith5BombsNear()
+        {
+            cell.Configure(false, 5);
+            Assert.AreEqual(cell.QuantityBombsNear, 5);
         }
 
         [TestMethod]
         public void FlagCell()
         {
-            var cell = new Cell(false);
             cell.Flagged();
             Assert.AreEqual(cell.Status, StatusEnum.Flagged);
         }
@@ -33,7 +52,6 @@ namespace Minesweeper.Test
         [TestMethod]
         public void CheckCellWithoutBomb()
         {
-            var cell = new Cell(false);
             cell.Check();
             Assert.AreEqual(cell.Status, StatusEnum.Revealed);
         }
@@ -42,7 +60,7 @@ namespace Minesweeper.Test
         [ExpectedException(typeof(GameOverException))]
         public void CheckCellWithBomb()
         {
-            var cell = new Cell(true);
+            cell.Configure(true, 0);
             cell.Check();
         }
     }
