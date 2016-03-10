@@ -2,8 +2,8 @@
 {
     public interface IFieldLevel
     {
-        int QuantityCellY();
-        int QuantityCellX();
+        int QuantityCollumns();
+        int QuantityRows();
         int QuantiyBombs();
     }
 }

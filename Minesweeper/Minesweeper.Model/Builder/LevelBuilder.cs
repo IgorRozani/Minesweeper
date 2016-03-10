@@ -4,13 +4,13 @@ namespace Minesweeper.Model.Builder
 {
     public abstract class LevelBuilder : IFieldLevel
     {
-        public abstract int QuantityCellX();
+        public abstract int QuantityRows();
 
-        public abstract int QuantityCellY();
+        public abstract int QuantityCollumns();
 
         public int QuantiyBombs()
         {
-            return (int)((QuantityCellX() * QuantityCellY()) * 0.2);
+            return (int)((QuantityRows() * QuantityCollumns()) * 0.2);
         }
     }
 }

@@ -22,9 +22,9 @@ namespace Minesweeper.Model.Builder
 
         private void InstanciateField()
         {
-            var quantityCellX = _fieldLevel.QuantityCellX();
-            _field = new Cell[_fieldLevel.QuantityCellX()][];
-            for (var row = 0; row < _fieldLevel.QuantityCellX(); row++)
+            var quantityRows = _fieldLevel.QuantityRows();
+            _field = new Cell[quantityRows][];
+            for (var row = 0; row < quantityRows; row++)
             {
                 _field[row] = CreateRow();
             }
@@ -32,9 +32,9 @@ namespace Minesweeper.Model.Builder
 
         private Cell[] CreateRow()
         {
-            var quantityCellY = _fieldLevel.QuantityCellY();
-            var row = new Cell[quantityCellY];
-            for (var cell = 0; cell < quantityCellY; cell++)
+            var quantityCollumns = _fieldLevel.QuantityCollumns();
+            var row = new Cell[quantityCollumns];
+            for (var cell = 0; cell < quantityCollumns; cell++)
             {
                 row[cell] = new Cell();
             }
