@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Minesweeper.Library.Exceptions
+namespace Minesweeper.Library.Exception
 {
     public class GameOverException : Exception
     {

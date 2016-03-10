@@ -1,5 +1,5 @@
-﻿using Minesweeper.Library.Exceptions;
-using Minesweeper.Model.Enumerators;
+﻿using Minesweeper.Library.Exception;
+using Minesweeper.Model.Enumerator;
 
 namespace Minesweeper.Model
 {

@@ -41,10 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell.cs" />
-    <Compile Include="Enumerators\DifficultyLevelEnum.cs" />
+    <Compile Include="Enumerator\DifficultyLevelEnum.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Level\EasyLevel.cs" />
+    <Compile Include="Builder\FieldBuilder.cs" />
+    <Compile Include="Level\HardLevel.cs" />
+    <Compile Include="Interface\IFieldLevel.cs" />
+    <Compile Include="Builder\LevelBuilder.cs" />
+    <Compile Include="Level\MediumLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Enumerators\StatusEnum.cs" />
+    <Compile Include="Enumerator\StatusEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Minesweeper.Library\Minesweeper.Library.csproj">
