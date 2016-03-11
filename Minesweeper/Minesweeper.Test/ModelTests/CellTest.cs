@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Minesweeper.Library.Exceptions;
+using Minesweeper.Library.Exception;
 using Minesweeper.Model;
-using Minesweeper.Model.Enumerators;
+using Minesweeper.Model.Enumerator;
 
 namespace Minesweeper.Test.ModelTests
 {

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Minesweeper.Library.Exception
 {
-    public class GameOverException : Exception
+    public class GameOverException : System.Exception
     {
         public GameOverException()
         {
@@ -13,7 +12,7 @@ namespace Minesweeper.Library.Exception
         {
         }
 
-        public GameOverException(string message, Exception innerException) : base(message, innerException)
+        public GameOverException(string message, System.Exception innerException) : base(message, innerException)
         {
         }
 

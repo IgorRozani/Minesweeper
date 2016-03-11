@@ -6,12 +6,12 @@ namespace Minesweeper.Model.Level
     {
         public override int QuantityRows()
         {
-            return 9;
+            return 20;
         }
 
         public override int QuantityCollumns()
         {
-            return 9;
+            return 20;
         }
     }
 }
