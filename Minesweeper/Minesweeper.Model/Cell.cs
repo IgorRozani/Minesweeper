@@ -14,10 +14,14 @@ namespace Minesweeper.Model
         public StatusEnum Status { get; private set; }
         public int QuantityBombsNear { get; private set; }
 
-        public void Configure(bool hasBomb, int quantityBombsNear)
+        public void SetBomb()
+        {
+            HasBomb = true;
+        }
+
+        public void SetQuantityBombsNear(int quantityBombsNear)
         {
             QuantityBombsNear = quantityBombsNear;
-            HasBomb = hasBomb;
         }
 
         public void Flagged()

@@ -25,20 +25,19 @@ namespace Minesweeper.Test.ModelTests
         [TestMethod]
         public void ConfigureCellWithBomb()
         {
-            cell.Configure(true, 0);
+            cell.SetBomb();
             Assert.IsTrue(cell.HasBomb);
         }
 
         public void ConfigureCellWithoutBomb()
         {
-            cell.Configure(false, 0);
             Assert.IsFalse(cell.HasBomb);
         }
 
         [TestMethod]
         public void ConfigureCellWith5BombsNear()
         {
-            cell.Configure(false, 5);
+            cell.SetQuantityBombsNear(5);
             Assert.AreEqual(cell.QuantityBombsNear, 5);
         }
 
@@ -60,7 +59,7 @@ namespace Minesweeper.Test.ModelTests
         [ExpectedException(typeof(GameOverException))]
         public void CheckCellWithBomb()
         {
-            cell.Configure(true, 0);
+            cell.SetBomb();
             cell.Check();
         }
     }
