@@ -55,5 +55,14 @@ namespace Minesweeper.Test.BuilderTests
             var quantityBombs = mock.QuantiyBombs();
             Assert.AreEqual(1, quantityBombs);
         }
+
+        [TestMethod]
+        public void LevelBuilderCalculateQuatityCells()
+        {
+            SetQuantityInMock(QUANTITY_ROWS_EVEN, QUANTITY_COLUMNS_EVEN);
+
+            var quantityCells = mock.QuantityCells();
+            Assert.AreEqual(100, quantityCells);
+        }
     }
 }

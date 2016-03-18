@@ -10,7 +10,12 @@ namespace Minesweeper.Model.Builder
 
         public int QuantiyBombs()
         {
-            return (int)((QuantityRows() * QuantityCollumns()) * 0.2);
+            return (int)(QuantityCells() * 0.2);
+        }
+
+        public int QuantityCells()
+        {
+            return QuantityRows() * QuantityCollumns();
         }
     }
 }

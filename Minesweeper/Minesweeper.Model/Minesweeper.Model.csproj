@@ -40,11 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\BombBuilder.cs" />
+    <Compile Include="Builder\NearBombCalculator.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Enumerator\DifficultyLevelEnum.cs" />
+    <Compile Include="Field.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Interface\IBombBuilder.cs" />
+    <Compile Include="Interface\INearBombCalculator.cs" />
     <Compile Include="Level\EasyLevel.cs" />
-    <Compile Include="Builder\FieldBuilder.cs" />
+    <Compile Include="Builder\FieldDirector.cs" />
     <Compile Include="Level\HardLevel.cs" />
     <Compile Include="Interface\IFieldLevel.cs" />
     <Compile Include="Builder\LevelBuilder.cs" />

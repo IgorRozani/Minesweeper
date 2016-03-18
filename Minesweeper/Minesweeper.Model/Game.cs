@@ -1,5 +1,5 @@
-﻿using Minesweeper.Model.Builder;
-using Minesweeper.Model.Enumerator;
+﻿using Minesweeper.Model.Enumerator;
+using Minesweeper.Model.Interface;
 using Minesweeper.Model.Level;
 using System;
 
@@ -8,32 +8,32 @@ namespace Minesweeper.Model
     public class Game
     {
         public DifficultyLevelEnum Difficulty { get; private set; }
-        public Cell[][] Field { get; private set; }
+        public Field Field { get; private set; }
 
         public void ConfigureGameDifficulty(DifficultyLevelEnum difficulty)
         {
             Difficulty = difficulty;
-            Field = BuildField(difficulty);
+            BuildField(difficulty);
         }
 
-        private static Cell[][] BuildField(DifficultyLevelEnum difficulty)
+        private void BuildField(DifficultyLevelEnum difficulty)
         {
-            FieldBuilder fieldBuilder;
+            IFieldLevel fieldLevel;
             switch (difficulty)
             {
                 case DifficultyLevelEnum.Easy:
-                    fieldBuilder = new FieldBuilder(new EasyLevel());
+                    fieldLevel = new EasyLevel();
                     break;
                 case DifficultyLevelEnum.Medium:
-                    fieldBuilder = new FieldBuilder(new MediumLevel());
+                    fieldLevel = new MediumLevel();
                     break;
                 case DifficultyLevelEnum.Hard:
-                    fieldBuilder = new FieldBuilder(new HardLevel());
+                    fieldLevel = new HardLevel();
                     break;
                 default:
                     throw new NotImplementedException();
             }
-            return fieldBuilder.GetField();
+            Field = new Field(fieldLevel);
         }
     }
 }
