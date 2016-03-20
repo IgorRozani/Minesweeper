@@ -1,17 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Minesweeper.Library.Extension
 {
     public static class ArrayExtension
     {
-        public static int GetRows(this Array source)
+        public static List<int> GetDimensionsLength(this Array source)
         {
-            return source.GetLength(0);
-        }
+            if (source == null)
+                throw new ArgumentNullException();
 
-        public static int GetCollumns(this Array source)
-        {
-            return source.Length / GetRows(source);
+            var lengths = new List<int>();
+            for (var index = 0; index < source.Rank; index++)
+                lengths.Add(source.GetLength(index));
+
+            return lengths;
         }
     }
 }

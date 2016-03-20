@@ -1,14 +1,16 @@
-﻿using Minesweeper.Library.Extension;
-using Minesweeper.Model.Interface;
+﻿using Minesweeper.Core.Interface;
+using Minesweeper.Library.Extension;
+using System.Linq;
 
-namespace Minesweeper.Model.Builder
+namespace Minesweeper.Core.Builder
 {
     public class NearBombCalculator : INearBombCalculator
     {
         public Cell[,] Calculate(Cell[,] field)
         {
-            var rows = field.GetRows();
-            var collumns = field.GetCollumns();
+            var lenghts = field.GetDimensionsLength();
+            var rows = lenghts.FirstOrDefault();
+            var collumns = lenghts.LastOrDefault();
 
             return field;
         }

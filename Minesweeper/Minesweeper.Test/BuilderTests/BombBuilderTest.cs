@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Minesweeper.Model.Builder;
-using Minesweeper.Model.Interface;
+using Minesweeper.Core.Builder;
+using Minesweeper.Core.Interface;
 using NSubstitute;
 
 namespace Minesweeper.Test.BuilderTests

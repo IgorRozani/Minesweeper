@@ -1,11 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Minesweeper.Model;
-using Minesweeper.Model.Builder;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Minesweeper.Core;
+using Minesweeper.Core.Builder;
 
 namespace Minesweeper.Test.BuilderTests
 {

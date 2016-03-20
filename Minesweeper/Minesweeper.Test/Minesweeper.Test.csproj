@@ -60,18 +60,19 @@
     <Compile Include="BuilderTests\FieldDirectorTest.cs" />
     <Compile Include="BuilderTests\LevelBuilderTest.cs" />
     <Compile Include="BuilderTests\NearBombCalculatorTest.cs" />
+    <Compile Include="ExtensionTests\ArrayExtensionTest.cs" />
     <Compile Include="ModelTests\CellTest.cs" />
     <Compile Include="ModelTests\GameTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Minesweeper.Core\Minesweeper.Core.csproj">
+      <Project>{75485576-9886-40e6-b34d-8d4464d62737}</Project>
+      <Name>Minesweeper.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Minesweeper.Library\Minesweeper.Library.csproj">
       <Project>{6f9a4cab-9a77-4348-976b-d109476684cc}</Project>
       <Name>Minesweeper.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Minesweeper.Model\Minesweeper.Model.csproj">
-      <Project>{8474c3ec-38ac-4b68-b2de-d100820f7447}</Project>
-      <Name>Minesweeper.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

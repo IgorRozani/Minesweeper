@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Minesweeper.Model.Builder;
+using Minesweeper.Core.Builder;
 using NSubstitute;
 
 namespace Minesweeper.Test.BuilderTests
@@ -11,11 +11,12 @@ namespace Minesweeper.Test.BuilderTests
         private const int QUANTITY_ROWS = 10;
 
         private FieldDirector mockFieldDirector;
+        private LevelBuilder mockLevelBuilder;
 
         [TestInitialize]
         public void InitializeTests()
         {
-            var mockLevelBuilder = Substitute.For<LevelBuilder>();
+            mockLevelBuilder = Substitute.For<LevelBuilder>();
             mockLevelBuilder.QuantityCollumns().Returns(QUANTITY_COLUMNS);
             mockLevelBuilder.QuantityRows().Returns(QUANTITY_ROWS);
 

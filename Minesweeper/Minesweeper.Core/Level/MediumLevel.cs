@@ -1,6 +1,6 @@
-﻿using Minesweeper.Model.Builder;
+﻿using Minesweeper.Core.Builder;
 
-namespace Minesweeper.Model.Level
+namespace Minesweeper.Core.Level
 {
     public class MediumLevel : LevelBuilder
     {

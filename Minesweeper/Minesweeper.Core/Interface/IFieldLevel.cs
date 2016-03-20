@@ -1,4 +1,4 @@
-﻿namespace Minesweeper.Model.Interface
+﻿namespace Minesweeper.Core.Interface
 {
     public interface IFieldLevel
     {

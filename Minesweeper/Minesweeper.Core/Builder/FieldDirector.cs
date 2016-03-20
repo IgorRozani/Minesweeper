@@ -1,7 +1,7 @@
-﻿using Minesweeper.Model.Interface;
+﻿using Minesweeper.Core.Interface;
 using System.Collections.Generic;
 
-namespace Minesweeper.Model.Builder
+namespace Minesweeper.Core.Builder
 {
     public class FieldDirector
     {
