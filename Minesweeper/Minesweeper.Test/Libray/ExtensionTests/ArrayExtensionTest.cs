@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Minesweeper.Library.Extension;
 using System.Collections.Generic;
 
-namespace Minesweeper.Test.ExtensionTests
+namespace Minesweeper.Test.Library.ExtensionTests
 {
     [TestClass]
     public class ArrayExtensionTest

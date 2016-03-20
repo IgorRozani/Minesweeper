@@ -3,7 +3,7 @@ using Minesweeper.Core.Builder;
 using Minesweeper.Core.Interface;
 using NSubstitute;
 
-namespace Minesweeper.Test.BuilderTests
+namespace Minesweeper.Test.Core.BuilderTests
 {
     [TestClass]
     public class BombBuilderTest

@@ -2,7 +2,7 @@
 using Minesweeper.Core;
 using Minesweeper.Core.Builder;
 
-namespace Minesweeper.Test.BuilderTests
+namespace Minesweeper.Test.Core.BuilderTests
 {
     [TestClass]
     public class NearBombCalculatorTest

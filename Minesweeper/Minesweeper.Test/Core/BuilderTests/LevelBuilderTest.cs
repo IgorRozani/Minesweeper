@@ -2,7 +2,7 @@
 using Minesweeper.Core.Builder;
 using NSubstitute;
 
-namespace Minesweeper.Test.BuilderTests
+namespace Minesweeper.Test.Core.BuilderTests
 {
     [TestClass]
     public class LevelBuilderTest

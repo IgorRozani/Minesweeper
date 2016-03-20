@@ -3,7 +3,7 @@ using Minesweeper.Library.Exception;
 using Minesweeper.Core;
 using Minesweeper.Core.Enumerator;
 
-namespace Minesweeper.Test.ModelTests
+namespace Minesweeper.Test.Core.ModelTests
 {
     [TestClass]
     public class CellTest
