@@ -34,6 +34,7 @@ namespace Minesweeper.Core
                     throw new NotImplementedException();
             }
             Field = new Field(fieldLevel);
+            //TODO: Call fieldDirector
         }
     }
 }

@@ -60,7 +60,7 @@ namespace Minesweeper.Test.Core.BuilderTests
         {
             SetQuantityInMock(QUANTITY_ROWS_EVEN, QUANTITY_COLUMNS_EVEN);
 
-            var quantityCells = mockLevelBuilder.QuantityCells();
+            var quantityCells = mockLevelBuilder.Size();
             Assert.AreEqual(100, quantityCells);
         }
     }

@@ -1,24 +1,23 @@
 ﻿using Minesweeper.Core.Interface;
-using System.Collections.Generic;
 
 namespace Minesweeper.Core.Builder
 {
-    public class FieldDirector
+    public class FieldDirector : IFieldDirector
     {
-        private IFieldLevel _fieldLevel;
-        private IBombBuilder _bombBuilder;
-        private INearBombCalculator _newBombCalculator;
-        private Cell[,] _field;
+        private IBombDirector _bombDirector;
+        private INearBombCalculator _nearBombCalculator;
+        private Field _field;
 
-        public FieldDirector(IFieldLevel fieldLevel)
+        public FieldDirector(IBombDirector bombDirector, INearBombCalculator nearBombCalculator)
         {
-            _fieldLevel = fieldLevel;
-            _bombBuilder = new BombBuilder();
-            _newBombCalculator = new NearBombCalculator();
+            _bombDirector = bombDirector;
+            _nearBombCalculator = nearBombCalculator;
         }
 
-        public Cell[,] CreateField()
+        public Field CreateField(Field field)
         {
+            _field = field;
+
             InstanciateField();
             CreateBombs();
 
@@ -27,42 +26,23 @@ namespace Minesweeper.Core.Builder
 
         private void InstanciateField()
         {
-            var rows = _fieldLevel.QuantityRows();
+            var rows = _field.FieldLevel.QuantityRows();
 
-            _field = new Cell[rows, _fieldLevel.QuantityCollumns()];
+            _field.Cells = new Cell[rows, _field.FieldLevel.QuantityCollumns()];
             for (var row = 0; row < rows; row++)
                 CreateRow(row);
         }
 
         private void CreateRow(int row)
         {
-            var collumns = _fieldLevel.QuantityCollumns();
+            var collumns = _field.FieldLevel.QuantityCollumns();
             for (var cell = 0; cell < collumns; cell++)
-                _field[row, cell] = new Cell();
+                _field.Cells[row, cell] = new Cell();
         }
 
         private void CreateBombs()
         {
-            PlaceBombsInField(_bombBuilder.GenerateBombsPosition(_fieldLevel));
-            //CalculateQuantityNearBombs();
+            _field.Cells = _bombDirector.GenerateBombs(_field.Cells, _field.FieldLevel.QuantiyBombs());
         }
-
-
-        private void PlaceBombsInField(List<int> bombsPosition)
-        {
-            foreach (var bombPosition in bombsPosition)
-            {
-                if (bombPosition == 0)
-                    _field[0, 0].SetBomb();
-                else
-                {
-                    var row = bombPosition / _fieldLevel.QuantityCollumns();
-                    var collumn = bombPosition % _fieldLevel.QuantityCollumns();
-                    _field[row, collumn].SetBomb();
-                }
-            }
-        }
-
-        
     }
 }

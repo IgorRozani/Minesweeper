@@ -1,41 +1,51 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Minesweeper.Core.Builder;
-using Minesweeper.Core.Interface;
-using NSubstitute;
+using Minesweeper.Library.Exception;
 
 namespace Minesweeper.Test.Core.BuilderTests
 {
     [TestClass]
-    public class BombBuilderTest
+    public class BombGeneratorTest
     {
-        private const int QUANTITY_CELLS = 100;
+        private const int FIELD_SIZE = 100;
+        private const int FIELD_SIZE_SMALL = 10;
         private const int QUANTITY_BOMBS = 20;
+        private const int QUANTITY_ZERO_BOMBS = 0;
 
-        private BombBuilder bombBuilder;
-        private IFieldLevel mockFieldLevel;
+        private BombGenerator bombGenerator;
 
         [TestInitialize]
         public void InitializeTests()
         {
-            mockFieldLevel = Substitute.For<IFieldLevel>();
-            mockFieldLevel.QuantityCells().Returns(QUANTITY_CELLS);
-            mockFieldLevel.QuantiyBombs().Returns(QUANTITY_BOMBS);
-
-            bombBuilder = new BombBuilder();
+            bombGenerator = new BombGenerator();
         }
 
         [TestMethod]
-        public void BombBuilderGenerateTwentyBombs()
+        public void BombGeneratorGenerateTwentyBombs()
         {
-            var bombs = bombBuilder.GenerateBombsPosition(mockFieldLevel);
+            var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE);
             Assert.AreEqual(QUANTITY_BOMBS, bombs.Count);
         }
 
         [TestMethod]
-        public void BombBuilderDontGenerateBombsInSamePosition()
+        public void BombGeneratorDontGenerateBombsInSamePosition()
         {
-            var bombs = bombBuilder.GenerateBombsPosition(mockFieldLevel);
+            var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE);
             CollectionAssert.AllItemsAreUnique(bombs);
+        }
+
+        [TestMethod]
+        public void BombGeneratorGenerateZeroBombs()
+        {
+            var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_ZERO_BOMBS, FIELD_SIZE);
+            Assert.AreEqual(QUANTITY_ZERO_BOMBS, bombs.Count);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(MinesweeperException))]
+        public void BombGeneratorTryGenerateMoreBombsThanFieldSize()
+        {
+            var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE_SMALL);
         }
     }
 }

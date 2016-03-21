@@ -1,5 +1,4 @@
-﻿using Minesweeper.Core.Builder;
-using Minesweeper.Core.Interface;
+﻿using Minesweeper.Core.Interface;
 
 namespace Minesweeper.Core
 {
@@ -7,12 +6,10 @@ namespace Minesweeper.Core
     {
         public Field(IFieldLevel fieldLevel)
         {
-            _fieldLevel = fieldLevel;
-            var fieldBuilder = new FieldDirector(fieldLevel);
-            Cells = fieldBuilder.CreateField();
+            FieldLevel = fieldLevel;
         }
 
-        public Cell[,] Cells { get; private set; }
-        private IFieldLevel _fieldLevel;
+        public Cell[,] Cells { get; set; }
+        public IFieldLevel FieldLevel { get; private set; }
     }
 }

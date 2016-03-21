@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Core\BuilderTests\BombBuilderTest.cs" />
+    <Compile Include="Core\BuilderTests\BombDirectorTest.cs" />
     <Compile Include="Core\BuilderTests\FieldDirectorTest.cs" />
     <Compile Include="Core\BuilderTests\LevelBuilderTest.cs" />
     <Compile Include="Core\BuilderTests\NearBombCalculatorTest.cs" />

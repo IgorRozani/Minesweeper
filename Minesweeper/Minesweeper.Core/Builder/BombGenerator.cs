@@ -1,20 +1,22 @@
 ﻿using Minesweeper.Core.Interface;
+using Minesweeper.Library.Exception;
 using System;
 using System.Collections.Generic;
 
 namespace Minesweeper.Core.Builder
 {
-    public class BombBuilder : IBombBuilder
+    public class BombGenerator : IBombGenerator
     {
-        public List<int> GenerateBombsPosition(IFieldLevel fieldLevel)
+        public List<int> GenerateBombsPosition(int quantityBombs, int fieldSize)
         {
-            var quantityBombs = fieldLevel.QuantiyBombs();
-            var fieldSize = fieldLevel.QuantityCells();
+            if (quantityBombs > fieldSize)
+                throw new MinesweeperException("Quantity bombs can't be bigger than fieldSize.");
+                
 
             var bombsPosition = new List<int>();
-
-            var generateMoreBomb = true;
             var random = new Random();
+
+            var generateMoreBomb = quantityBombs > 0;
             while (generateMoreBomb)
             {
                 var nextPosition = random.Next(0, fieldSize - 1);

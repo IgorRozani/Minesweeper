@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exception\GameOverException.cs" />
+    <Compile Include="Exception\MinesweeperException.cs" />
     <Compile Include="Extension\ArrayExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

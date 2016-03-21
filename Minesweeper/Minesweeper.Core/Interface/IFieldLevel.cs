@@ -5,6 +5,6 @@
         int QuantityCollumns();
         int QuantityRows();
         int QuantiyBombs();
-        int QuantityCells();
+        int Size();
     }
 }
