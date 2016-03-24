@@ -1,11 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
 using Minesweeper.Core.Builder;
 using Minesweeper.Library.Exception;
+using NUnit.Framework;
+using System;
 
-namespace Minesweeper.Test.Core.BuilderTests
+namespace Minesweeper.Test.Core.BuilderTest
 {
-    [TestClass]
-    public class BombGeneratorTest
+    [TestFixture]
+    public class BombBuilderTest
     {
         private const int FIELD_SIZE = 100;
         private const int FIELD_SIZE_SMALL = 10;
@@ -14,38 +16,38 @@ namespace Minesweeper.Test.Core.BuilderTests
 
         private BombGenerator bombGenerator;
 
-        [TestInitialize]
+        [SetUp]
         public void InitializeTests()
         {
             bombGenerator = new BombGenerator();
         }
 
-        [TestMethod]
+        [Test]
         public void BombGeneratorGenerateTwentyBombs()
         {
             var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE);
-            Assert.AreEqual(QUANTITY_BOMBS, bombs.Count);
+            bombs.Should().NotBeNullOrEmpty().And.HaveCount(QUANTITY_BOMBS);
         }
 
-        [TestMethod]
+        [Test]
         public void BombGeneratorDontGenerateBombsInSamePosition()
         {
             var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE);
-            CollectionAssert.AllItemsAreUnique(bombs);
+            bombs.Should().NotBeNullOrEmpty().And.OnlyHaveUniqueItems();
         }
 
-        [TestMethod]
+        [Test]
         public void BombGeneratorGenerateZeroBombs()
         {
             var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_ZERO_BOMBS, FIELD_SIZE);
-            Assert.AreEqual(QUANTITY_ZERO_BOMBS, bombs.Count);
+            bombs.Should().NotBeNull().And.HaveCount(QUANTITY_ZERO_BOMBS);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(MinesweeperException))]
+        [Test]
         public void BombGeneratorTryGenerateMoreBombsThanFieldSize()
         {
-            var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE_SMALL);
+            Action act = () => bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE_SMALL);
+            act.ShouldThrow<MinesweeperException>();
         }
     }
 }

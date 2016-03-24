@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Minesweeper.Core;
+﻿using Minesweeper.Core;
 using Minesweeper.Core.Builder;
 using Minesweeper.Core.Interface;
 using NSubstitute;
+using NUnit.Framework;
 
-namespace Minesweeper.Test.Core.BuilderTests
+namespace Minesweeper.Test.Core.BuilderTest
 {
-    [TestClass]
+    [TestFixture]
     public class FieldDirectorTest
     {
         private const int QUANTITY_COLUMNS = 10;
@@ -18,7 +18,7 @@ namespace Minesweeper.Test.Core.BuilderTests
         private INearBombCalculator mockNearBombCalculator;
         private IBombDirector mockBombDirector;
 
-        [TestInitialize]
+        [SetUp]
         public void InitializeTests()
         {
             mockFieldLevel = Substitute.For<IFieldLevel>();
@@ -36,10 +36,11 @@ namespace Minesweeper.Test.Core.BuilderTests
 
         }
 
-        [TestMethod]
+        [Test]
         public void FieldDirectorGenerateCellsNotNull()
         {
             var generateField = mockFieldDirector.CreateField(field);
+
             CollectionAssert.AllItemsAreNotNull(generateField.Cells);
         }
     }

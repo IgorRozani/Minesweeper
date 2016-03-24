@@ -36,10 +36,6 @@ namespace Minesweeper.Core.Builder
             {
                 if (bombPosition == 0)
                     _cells[0, 0].SetBomb();
-                //else if(bombPosition + 1 < quantityCollumns)
-                //{
-                //    _cells[0, bombPosition].SetBomb();
-                //}
                 else
                 {
                     var row = bombPosition / quantityCollumns;

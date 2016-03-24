@@ -1,10 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
 using Minesweeper.Core.Builder;
 using NSubstitute;
+using NUnit.Framework;
 
-namespace Minesweeper.Test.Core.BuilderTests
+namespace Minesweeper.Test.Core.BuilderTest
 {
-    [TestClass]
+    [TestFixture]
     public class LevelBuilderTest
     {
         private const int QUANTITY_ROWS_EVEN = 10;
@@ -16,7 +17,7 @@ namespace Minesweeper.Test.Core.BuilderTests
 
         private LevelBuilder mockLevelBuilder;
 
-        [TestInitialize]
+        [SetUp]
         public void InitializeTests()
         {
             mockLevelBuilder = Substitute.For<LevelBuilder>();
@@ -28,40 +29,44 @@ namespace Minesweeper.Test.Core.BuilderTests
             mockLevelBuilder.QuantityRows().Returns(rows);
         }
 
-        [TestMethod]
+        [Test]
         public void LevelBuilderCalculateQuantityBombsWithValidNumbers()
         {
             SetQuantityInMock(QUANTITY_ROWS_EVEN, QUANTITY_COLUMNS_EVEN);
 
             var quantityBombs = mockLevelBuilder.QuantiyBombs();
-            Assert.AreEqual(20, quantityBombs);
+
+            quantityBombs.Should().Be(20);
         }
 
-        [TestMethod]
+        [Test]
         public void LevelBuilderCalculateQuantityBombsWithDecimalSmallerThanFive()
         {
             SetQuantityInMock(QUANTITY_ROWS_ODD_SMALLER, QUANTITY_COLUMNS_ODD_SMALLER);
 
             var quantityBombs = mockLevelBuilder.QuantiyBombs();
-            Assert.AreEqual(16, quantityBombs);
+
+            quantityBombs.Should().Be(16);
         }
 
-        [TestMethod]
+        [Test]
         public void LevelBuilderCalculateQuantityBombsWithDecimalGreaterThanFive()
         {
             SetQuantityInMock(QUANTITY_ROWS_ODD_GREATER, QUANTITY_COLUMNS_ODD_GREATER);
 
             var quantityBombs = mockLevelBuilder.QuantiyBombs();
-            Assert.AreEqual(1, quantityBombs);
+
+            quantityBombs.Should().Be(1);
         }
 
-        [TestMethod]
+        [Test]
         public void LevelBuilderCalculateQuatityCells()
         {
             SetQuantityInMock(QUANTITY_ROWS_EVEN, QUANTITY_COLUMNS_EVEN);
 
             var quantityCells = mockLevelBuilder.Size();
-            Assert.AreEqual(100, quantityCells);
+
+            quantityCells.Should().Be(100);
         }
     }
 }

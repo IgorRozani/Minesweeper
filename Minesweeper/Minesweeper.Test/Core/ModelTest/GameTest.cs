@@ -1,26 +1,27 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
 using Minesweeper.Core;
 using Minesweeper.Core.Enumerator;
+using NUnit.Framework;
 
-namespace Minesweeper.Test.Core.ModelTests
+namespace Minesweeper.Test.Core.ModelTest
 {
-    [TestClass]
+    [TestFixture]
     public class GameTest
     {
         private Game game;
 
-        [TestInitialize]
+        [SetUp]
         public void GameInitialize()
         {
             game = new Game();
         }
 
-        [TestMethod]
+        [Test]
         public void GetConfiguredGameDifficultity()
         {
             game.ConfigureGameDifficulty(DifficultyLevelEnum.Easy);
 
-            Assert.AreEqual(game.Difficulty, DifficultyLevelEnum.Easy);
+            game.Difficulty.Should().Be(DifficultyLevelEnum.Easy);
         }
     }
 }
