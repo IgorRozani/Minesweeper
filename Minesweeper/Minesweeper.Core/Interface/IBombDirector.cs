@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using Minesweeper.Core.Model;
 
 namespace Minesweeper.Core.Interface
 {

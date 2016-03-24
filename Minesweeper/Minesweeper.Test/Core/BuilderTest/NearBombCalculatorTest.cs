@@ -1,12 +1,7 @@
 ﻿using FluentAssertions;
-using Minesweeper.Core;
 using Minesweeper.Core.Builder;
+using Minesweeper.Core.Model;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Minesweeper.Test.Core.BuilderTest
 {

@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using Minesweeper.Core;
 using Minesweeper.Core.Enumerator;
+using Minesweeper.Core.Model;
 using NUnit.Framework;
 
 namespace Minesweeper.Test.Core.ModelTest

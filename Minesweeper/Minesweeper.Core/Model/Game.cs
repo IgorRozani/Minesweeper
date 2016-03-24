@@ -3,7 +3,7 @@ using Minesweeper.Core.Interface;
 using Minesweeper.Core.Level;
 using System;
 
-namespace Minesweeper.Core
+namespace Minesweeper.Core.Model
 {
     public class Game
     {

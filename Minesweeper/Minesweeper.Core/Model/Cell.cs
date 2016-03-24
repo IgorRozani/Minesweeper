@@ -2,7 +2,7 @@
 using Minesweeper.Library.Exception;
 using System;
 
-namespace Minesweeper.Core
+namespace Minesweeper.Core.Model
 {
     public class Cell : IEquatable<Cell>
     {

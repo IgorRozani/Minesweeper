@@ -1,4 +1,6 @@
-﻿namespace Minesweeper.Core.Interface
+﻿using Minesweeper.Core.Model;
+
+namespace Minesweeper.Core.Interface
 {
     public interface INearBombCalculator
     {

@@ -1,6 +1,6 @@
 ﻿using Minesweeper.Core.Interface;
 
-namespace Minesweeper.Core
+namespace Minesweeper.Core.Model
 {
     public class Field
     {

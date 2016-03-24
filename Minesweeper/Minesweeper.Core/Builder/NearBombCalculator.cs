@@ -1,4 +1,5 @@
 ﻿using Minesweeper.Core.Interface;
+using Minesweeper.Core.Model;
 using Minesweeper.Library.Extension;
 using System.Collections.Generic;
 using System.Linq;

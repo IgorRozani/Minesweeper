@@ -13,9 +13,8 @@ namespace Minesweeper.Test.Library.ExtensionTest
         public void GetDimensionsLengthOfNullArray()
         {
             int[] array = null;
-            Action act = () => array.GetDimensionsLength();
-            act.ShouldThrow<ArgumentNullException>();
-            //Assert.Throws<ArgumentNullException>(() => array.GetDimensionsLength());
+            Action action = () => array.GetDimensionsLength();
+            action.ShouldThrow<ArgumentNullException>();
         }
 
         [Test]
@@ -24,7 +23,6 @@ namespace Minesweeper.Test.Library.ExtensionTest
             var array = new int[12];
             var lengths = array.GetDimensionsLength();
             lengths.Should().NotBeEmpty().And.HaveSameCount(new List<int> { 12 });
-            //CollectionAssert.AreEqual(new List<int> { 12 }, lengths);
         }
 
         [Test]

@@ -1,6 +1,6 @@
-﻿using Minesweeper.Core;
-using Minesweeper.Core.Builder;
+﻿using Minesweeper.Core.Builder;
 using Minesweeper.Core.Interface;
+using Minesweeper.Core.Model;
 using NSubstitute;
 using NUnit.Framework;
 
