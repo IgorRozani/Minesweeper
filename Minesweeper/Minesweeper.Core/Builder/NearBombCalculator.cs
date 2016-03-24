@@ -28,7 +28,7 @@ namespace Minesweeper.Core.Builder
 
                     foreach (var rowToCheck in rowsToCheck)
                     {
-                        if (field[rowToCheck, collumn].HasBomb)
+                        if (field[rowToCheck, collumn].HasBomb && rowToCheck != row)
                             quantityBombsNear++;
                         if (collumn > 0)
                             if (field[rowToCheck,collumn - 1].HasBomb)

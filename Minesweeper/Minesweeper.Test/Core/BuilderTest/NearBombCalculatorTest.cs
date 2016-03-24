@@ -40,6 +40,12 @@ namespace Minesweeper.Test.Core.BuilderTest
             nearBombCalculator = new NearBombCalculator();
         }
 
+        private void AssertValues()
+        {
+            var calculateCells = nearBombCalculator.Calculate(sourceCells);
+            calculateCells.ShouldBeEquivalentTo(expectedCells);
+        }
+
         [Test]
         public void NearBombCalculatorCalculateABombInFirstPosition()
         {
@@ -50,9 +56,97 @@ namespace Minesweeper.Test.Core.BuilderTest
             expectedCells[1, 0].SetQuantityBombsNear(1);
             expectedCells[1, 1].SetQuantityBombsNear(1);
 
-            
-            var calculateCells = nearBombCalculator.Calculate(sourceCells);
-            calculateCells.ShouldBeEquivalentTo(expectedCells);
+            AssertValues();
+        }
+
+        [Test]
+        public void NearBombCalculatorCalculateABombInLastPosition()
+        {
+            sourceCells[2, 2].SetBomb();
+
+            expectedCells[2, 2].SetBomb();
+            expectedCells[2, 1].SetQuantityBombsNear(1);
+            expectedCells[1, 1].SetQuantityBombsNear(1);
+            expectedCells[1, 2].SetQuantityBombsNear(1);
+
+            AssertValues();
+        }
+
+        [Test]
+        public void NearBombCalculatorCalculateABombInTheMiddle()
+        {
+            sourceCells[1, 1].SetBomb();
+
+            expectedCells[1, 1].SetBomb();
+            expectedCells[0, 0].SetQuantityBombsNear(1);
+            expectedCells[0, 1].SetQuantityBombsNear(1);
+            expectedCells[0, 2].SetQuantityBombsNear(1);
+            expectedCells[1, 0].SetQuantityBombsNear(1);
+            expectedCells[1, 2].SetQuantityBombsNear(1);
+            expectedCells[2, 0].SetQuantityBombsNear(1);
+            expectedCells[2, 1].SetQuantityBombsNear(1);
+            expectedCells[2, 2].SetQuantityBombsNear(1);
+
+            AssertValues();
+        }
+
+        [Test]
+        public void NearBombCalculatorCalculateAFieldWith2Bombs()
+        {
+            sourceCells[0, 0].SetBomb();
+            sourceCells[0, 1].SetBomb();
+
+            expectedCells[0, 0].SetBomb();
+            expectedCells[0, 1].SetBomb();
+            expectedCells[0, 0].SetQuantityBombsNear(1);
+            expectedCells[0, 1].SetQuantityBombsNear(1);
+            expectedCells[0, 2].SetQuantityBombsNear(1);
+            expectedCells[1, 0].SetQuantityBombsNear(2);
+            expectedCells[1, 1].SetQuantityBombsNear(2);
+            expectedCells[1, 2].SetQuantityBombsNear(1);
+
+            AssertValues();
+        }
+
+        [Test]
+        public void NearBombCalculatorCalculate8Bombs()
+        {
+            sourceCells[0, 0].SetBomb();
+            sourceCells[0, 1].SetBomb();
+            sourceCells[0, 2].SetBomb();
+            sourceCells[1, 0].SetBomb();
+            sourceCells[1, 2].SetBomb();
+            sourceCells[2, 0].SetBomb();
+            sourceCells[2, 1].SetBomb();
+            sourceCells[2, 2].SetBomb();
+
+
+            expectedCells[0, 0].SetBomb();
+            expectedCells[0, 1].SetBomb();
+            expectedCells[0, 2].SetBomb();
+            expectedCells[1, 0].SetBomb();
+            expectedCells[1, 2].SetBomb();
+            expectedCells[2, 0].SetBomb();
+            expectedCells[2, 1].SetBomb();
+            expectedCells[2, 2].SetBomb();
+
+            expectedCells[0, 0].SetQuantityBombsNear(2);
+            expectedCells[0, 1].SetQuantityBombsNear(4);
+            expectedCells[0, 2].SetQuantityBombsNear(2);
+            expectedCells[1, 0].SetQuantityBombsNear(4);
+            expectedCells[1, 1].SetQuantityBombsNear(8);
+            expectedCells[1, 2].SetQuantityBombsNear(4);
+            expectedCells[2, 0].SetQuantityBombsNear(2);
+            expectedCells[2, 1].SetQuantityBombsNear(4);
+            expectedCells[2, 2].SetQuantityBombsNear(2);
+
+            AssertValues();
+        }
+
+        [Test]
+        public void NearBombCalculatorCalculate0Bombs()
+        {
+            AssertValues();
         }
     }
 }
