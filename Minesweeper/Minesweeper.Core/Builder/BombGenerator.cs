@@ -1,9 +1,9 @@
-﻿using Minesweeper.Core.Interface;
+﻿using Minesweeper.Domain.Interface;
 using Minesweeper.Library.Exception;
 using System;
 using System.Collections.Generic;
 
-namespace Minesweeper.Core.Builder
+namespace Minesweeper.Domain.Builder
 {
     public class BombGenerator : IBombGenerator
     {

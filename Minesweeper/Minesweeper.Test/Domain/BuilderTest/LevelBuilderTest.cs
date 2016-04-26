@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using Minesweeper.Core.Builder;
+using Minesweeper.Domain.Builder;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Core.BuilderTest
+namespace Minesweeper.Test.Domain.BuilderTest
 {
     [TestFixture]
     public class LevelBuilderTest

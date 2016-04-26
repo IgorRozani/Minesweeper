@@ -52,13 +52,13 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\BuilderTest\BombBuilderTest.cs" />
-    <Compile Include="Core\BuilderTest\BombGeneratorTest.cs" />
-    <Compile Include="Core\BuilderTest\FieldDirectorTest.cs" />
-    <Compile Include="Core\BuilderTest\LevelBuilderTest.cs" />
-    <Compile Include="Core\BuilderTest\NearBombCalculatorTest.cs" />
-    <Compile Include="Core\ModelTest\CellTest.cs" />
-    <Compile Include="Core\ModelTest\GameTest.cs" />
+    <Compile Include="Domain\BuilderTest\BombBuilderTest.cs" />
+    <Compile Include="Domain\BuilderTest\BombGeneratorTest.cs" />
+    <Compile Include="Domain\BuilderTest\FieldDirectorTest.cs" />
+    <Compile Include="Domain\BuilderTest\LevelBuilderTest.cs" />
+    <Compile Include="Domain\BuilderTest\NearBombCalculatorTest.cs" />
+    <Compile Include="Domain\ModelTest\CellTest.cs" />
+    <Compile Include="Domain\ModelTest\GameTest.cs" />
     <Compile Include="Library\ExtensionTest\ArrayExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,9 +66,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Minesweeper.Core\Minesweeper.Core.csproj">
+    <ProjectReference Include="..\Minesweeper.Core\Minesweeper.Domain.csproj">
       <Project>{75485576-9886-40e6-b34d-8d4464d62737}</Project>
-      <Name>Minesweeper.Core</Name>
+      <Name>Minesweeper.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Minesweeper.Library\Minesweeper.Library.csproj">
       <Project>{6f9a4cab-9a77-4348-976b-d109476684cc}</Project>

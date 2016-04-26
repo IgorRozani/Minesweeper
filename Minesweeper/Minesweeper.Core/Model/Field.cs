@@ -1,6 +1,6 @@
-﻿using Minesweeper.Core.Interface;
+﻿using Minesweeper.Domain.Interface;
 
-namespace Minesweeper.Core.Model
+namespace Minesweeper.Domain.Model
 {
     public class Field
     {

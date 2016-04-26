@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using Minesweeper.Core.Enumerator;
-using Minesweeper.Core.Model;
+using Minesweeper.Domain.Enumerator;
+using Minesweeper.Domain.Model;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Core.ModelTest
+namespace Minesweeper.Test.Domain.ModelTest
 {
     [TestFixture]
     public class GameTest

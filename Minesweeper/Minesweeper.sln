@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Library", "Minesweeper.Library\Minesweeper.Library.csproj", "{6F9A4CAB-9A77-4348-976B-D109476684CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Core", "Minesweeper.Core\Minesweeper.Core.csproj", "{75485576-9886-40E6-B34D-8D4464D62737}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Domain", "Minesweeper.Core\Minesweeper.Domain.csproj", "{75485576-9886-40E6-B34D-8D4464D62737}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Test", "Minesweeper.Test\Minesweeper.Test.csproj", "{4E7F8DCC-FCB7-4C48-9BE9-595F8D70E05F}"
 EndProject

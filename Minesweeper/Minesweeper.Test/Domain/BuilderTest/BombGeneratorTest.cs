@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
-using Minesweeper.Core.Builder;
-using Minesweeper.Core.Interface;
-using Minesweeper.Core.Model;
+using Minesweeper.Domain.Builder;
+using Minesweeper.Domain.Interface;
+using Minesweeper.Domain.Model;
 using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Minesweeper.Test.Core.BuilderTest
+namespace Minesweeper.Test.Domain.BuilderTest
 {
     [TestFixture]
     public class BombGeneratorTest

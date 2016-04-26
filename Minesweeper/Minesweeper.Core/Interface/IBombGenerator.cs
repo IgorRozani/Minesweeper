@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Minesweeper.Core.Interface
+namespace Minesweeper.Domain.Interface
 {
     public interface IBombGenerator
     {

@@ -1,4 +1,4 @@
-﻿namespace Minesweeper.Core.Enumerator
+﻿namespace Minesweeper.Domain.Enumerator
 {
     public enum StatusEnum
     {

@@ -1,6 +1,6 @@
-﻿using Minesweeper.Core.Model;
+﻿using Minesweeper.Domain.Model;
 
-namespace Minesweeper.Core.Interface
+namespace Minesweeper.Domain.Interface
 {
     public interface IFieldDirector
     {

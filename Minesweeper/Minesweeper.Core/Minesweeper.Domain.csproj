@@ -7,8 +7,8 @@
     <ProjectGuid>{75485576-9886-40E6-B34D-8D4464D62737}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Minesweeper.Core</RootNamespace>
-    <AssemblyName>Minesweeper.Core</AssemblyName>
+    <RootNamespace>Minesweeper.Domain</RootNamespace>
+    <AssemblyName>Minesweeper.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

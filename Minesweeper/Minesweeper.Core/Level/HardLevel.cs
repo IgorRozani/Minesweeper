@@ -1,6 +1,6 @@
-﻿using Minesweeper.Core.Builder;
+﻿using Minesweeper.Domain.Builder;
 
-namespace Minesweeper.Core.Level
+namespace Minesweeper.Domain.Level
 {
     public class HardLevel : LevelBuilder
     {

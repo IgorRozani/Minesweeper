@@ -1,8 +1,8 @@
-﻿using Minesweeper.Core.Enumerator;
+﻿using Minesweeper.Domain.Enumerator;
 using Minesweeper.Library.Exception;
 using System;
 
-namespace Minesweeper.Core.Model
+namespace Minesweeper.Domain.Model
 {
     public class Cell : IEquatable<Cell>
     {

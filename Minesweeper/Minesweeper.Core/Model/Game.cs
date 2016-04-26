@@ -1,9 +1,9 @@
-﻿using Minesweeper.Core.Enumerator;
-using Minesweeper.Core.Interface;
-using Minesweeper.Core.Level;
+﻿using Minesweeper.Domain.Enumerator;
+using Minesweeper.Domain.Interface;
+using Minesweeper.Domain.Level;
 using System;
 
-namespace Minesweeper.Core.Model
+namespace Minesweeper.Domain.Model
 {
     public class Game
     {
