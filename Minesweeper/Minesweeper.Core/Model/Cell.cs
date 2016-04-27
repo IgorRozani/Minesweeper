@@ -18,7 +18,7 @@ namespace Minesweeper.Domain.Model
         public void SetBomb()
         {
             if (!IsUntouched())
-                throw new MinesweeperException("It can't be place a bomb in a checked cell.");
+                throw new MinesweeperException(Properties.Resources.CellIsCheckedPlaceBomb);
 
             HasBomb = true;
         }
@@ -26,7 +26,7 @@ namespace Minesweeper.Domain.Model
         public void SetQuantityBombsNear(int quantityBombsNear)
         {
             if (!IsUntouched())
-                throw new MinesweeperException("It can't be set quantity bombs near in a checked cell.");
+                throw new MinesweeperException(Properties.Resources.CellIsCheckedBombsNear);
 
             QuantityBombsNear = quantityBombsNear;
         }

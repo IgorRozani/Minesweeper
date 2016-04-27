@@ -10,8 +10,7 @@ namespace Minesweeper.Domain.Builder
         public List<int> GenerateBombsPosition(int quantityBombs, int fieldSize)
         {
             if (quantityBombs > fieldSize)
-                throw new MinesweeperException("Quantity bombs can't be bigger than fieldSize.");
-                
+                throw new MinesweeperException(Properties.Resources.QuantityBombsBiggerThanFieldSize);
 
             var bombsPosition = new List<int>();
             var random = new Random();
