@@ -4,7 +4,7 @@ using Minesweeper.Library.Exception;
 using NUnit.Framework;
 using System;
 
-namespace Minesweeper.Test.Domain.BuilderTest
+namespace Minesweeper.Test.Domain.Unit.Builder
 {
     [TestFixture]
     public class BombBuilderTest

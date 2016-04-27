@@ -3,7 +3,7 @@ using Minesweeper.Domain.Enumerator;
 using Minesweeper.Domain.Model;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Domain.ModelTest
+namespace Minesweeper.Test.Domain.Unit.Model
 {
     [TestFixture]
     public class GameTest

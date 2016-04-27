@@ -7,7 +7,8 @@ namespace Minesweeper.Domain.Builder
     {
         private IBombDirector _bombDirector;
         private INearBombCalculator _nearBombCalculator;
-        private Field _field;
+        private IFieldLevel _fieldLevel;
+        private Cell[,] _field;
 
         public FieldDirector(IBombDirector bombDirector, INearBombCalculator nearBombCalculator)
         {
@@ -15,35 +16,41 @@ namespace Minesweeper.Domain.Builder
             _nearBombCalculator = nearBombCalculator;
         }
 
-        public Field CreateField(Field field)
+        public Cell[,] CreateField(IFieldLevel fieldLevel)
         {
-            _field = field;
+            _fieldLevel = fieldLevel;
 
             InstanciateField();
             CreateBombs();
+            CalculateNearBombs();
 
             return _field;
         }
 
+        private void CalculateNearBombs()
+        {
+            _field = _nearBombCalculator.Calculate(_field);
+        }
+
         private void InstanciateField()
         {
-            var rows = _field.FieldLevel.QuantityRows();
+            var rows = _fieldLevel.QuantityRows();
 
-            _field.Cells = new Cell[rows, _field.FieldLevel.QuantityCollumns()];
+            _field = new Cell[rows, _fieldLevel.QuantityCollumns()];
             for (var row = 0; row < rows; row++)
                 CreateRow(row);
         }
 
         private void CreateRow(int row)
         {
-            var collumns = _field.FieldLevel.QuantityCollumns();
+            var collumns = _fieldLevel.QuantityCollumns();
             for (var cell = 0; cell < collumns; cell++)
-                _field.Cells[row, cell] = new Cell();
+                _field[row, cell] = new Cell();
         }
 
         private void CreateBombs()
         {
-            _field.Cells = _bombDirector.GenerateBombs(_field.Cells, _field.FieldLevel.QuantiyBombs());
+            _field = _bombDirector.GenerateBombs(_field, _fieldLevel.QuantiyBombs());
         }
     }
 }

@@ -4,6 +4,6 @@ namespace Minesweeper.Domain.Interface
 {
     public interface IFieldDirector
     {
-        Field CreateField(Field field);
+        Cell[,] CreateField(IFieldLevel fieldLevel);
     }
 }

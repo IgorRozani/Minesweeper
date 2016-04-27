@@ -3,7 +3,7 @@ using Minesweeper.Domain.Builder;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Domain.BuilderTest
+namespace Minesweeper.Test.Domain.Unit.Builder
 {
     [TestFixture]
     public class LevelBuilderTest

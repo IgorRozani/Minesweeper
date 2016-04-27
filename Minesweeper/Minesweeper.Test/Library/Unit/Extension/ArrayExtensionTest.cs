@@ -4,7 +4,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
-namespace Minesweeper.Test.Library.ExtensionTest
+namespace Minesweeper.Test.Library.Unit.Extension
 {
     [TestFixture]
     public class ArrayExtensionTest

@@ -3,7 +3,7 @@ using Minesweeper.Domain.Builder;
 using Minesweeper.Domain.Model;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Domain.BuilderTest
+namespace Minesweeper.Test.Domain.Unit.Builder
 {
     [TestFixture]
     public class NearBombCalculatorTest

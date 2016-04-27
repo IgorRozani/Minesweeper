@@ -5,7 +5,7 @@ using Minesweeper.Library.Exception;
 using NUnit.Framework;
 using System;
 
-namespace Minesweeper.Test.Domain.ModelTest
+namespace Minesweeper.Test.Domain.Unit.Model
 {
     [TestFixture]
     public class CellTest
