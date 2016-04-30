@@ -22,5 +22,15 @@ namespace Minesweeper.Domain.Model
             IFieldDirector fieldDirector = new FieldDirector(bombDirector, nearBombCalculator);
             Cells = fieldDirector.CreateField(FieldLevel);
         }
+
+        public void Check(int row, int collumn)
+        {
+            Cells[row, collumn].Check();
+        }
+
+        public void Flag(int row,int collumn)
+        {
+            Cells[row, collumn].Flag();
+        }
     }
 }

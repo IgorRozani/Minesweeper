@@ -49,7 +49,7 @@ namespace Minesweeper.Test.Domain.Unit.Model
         [Test]
         public void FlagCell()
         {
-            cell.Flagged();
+            cell.Flag();
             cell.Status.Should().Be(StatusEnum.Flagged);
         }
 

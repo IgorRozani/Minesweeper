@@ -31,7 +31,7 @@ namespace Minesweeper.Domain.Model
             QuantityBombsNear = quantityBombsNear;
         }
 
-        public void Flagged()
+        public void Flag()
         {
             Status = StatusEnum.Flagged;
         }
