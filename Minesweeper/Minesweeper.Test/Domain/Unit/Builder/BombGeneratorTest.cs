@@ -2,6 +2,7 @@
 using Minesweeper.Domain.Builder;
 using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Model;
+using Minesweeper.Test.Helper;
 using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -26,27 +27,8 @@ namespace Minesweeper.Test.Domain.Unit.Builder
         {
             bombsPosition = new List<int>();
 
-            sourceCells = new Cell[3, 3];
-            sourceCells[0, 0] = new Cell();
-            sourceCells[0, 1] = new Cell();
-            sourceCells[0, 2] = new Cell();
-            sourceCells[1, 0] = new Cell();
-            sourceCells[1, 1] = new Cell();
-            sourceCells[1, 2] = new Cell();
-            sourceCells[2, 0] = new Cell();
-            sourceCells[2, 1] = new Cell();
-            sourceCells[2, 2] = new Cell();
-
-            expectedCells = new Cell[3, 3];
-            expectedCells[0, 0] = new Cell();
-            expectedCells[0, 1] = new Cell();
-            expectedCells[0, 2] = new Cell();
-            expectedCells[1, 0] = new Cell();
-            expectedCells[1, 1] = new Cell();
-            expectedCells[1, 2] = new Cell();
-            expectedCells[2, 0] = new Cell();
-            expectedCells[2, 1] = new Cell();
-            expectedCells[2, 2] = new Cell();
+            sourceCells = FieldHelper.InstanciateField3x3();
+            expectedCells = FieldHelper.InstanciateField3x3();
 
             mockBombGenerator = Substitute.For<IBombGenerator>();
         }

@@ -45,6 +45,8 @@
     <Compile Include="Builder\FieldDirector.cs" />
     <Compile Include="Builder\LevelBuilder.cs" />
     <Compile Include="Builder\NearBombCalculator.cs" />
+    <Compile Include="GameMechanic\IdentifiedBombsCalculator.cs" />
+    <Compile Include="Interface\IIdentifiedBombsCalculator.cs" />
     <Compile Include="Model\Cell.cs" />
     <Compile Include="Enumerator\DifficultyLevelEnum.cs" />
     <Compile Include="Enumerator\StatusEnum.cs" />
@@ -78,6 +80,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

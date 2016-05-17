@@ -58,8 +58,10 @@
     <Compile Include="Domain\Integration\Builder\FieldDirectorTest.cs" />
     <Compile Include="Domain\Unit\Builder\LevelBuilderTest.cs" />
     <Compile Include="Domain\Unit\Builder\NearBombCalculatorTest.cs" />
+    <Compile Include="Domain\Unit\GameMechanic\IdentifiedBombsCalculatorTest.cs" />
     <Compile Include="Domain\Unit\Model\CellTest.cs" />
     <Compile Include="Domain\Unit\Model\GameTest.cs" />
+    <Compile Include="Helper\FieldHelper.cs" />
     <Compile Include="Library\Unit\Extension\ArrayExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
