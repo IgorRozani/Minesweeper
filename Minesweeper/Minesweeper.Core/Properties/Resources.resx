@@ -123,7 +123,13 @@
   <data name="CellIsCheckedPlaceBomb" xml:space="preserve">
     <value>It can't be place a bomb in a checked cell.</value>
   </data>
+  <data name="CheckCellReavealed" xml:space="preserve">
+    <value>This cell is already revealed.</value>
+  </data>
   <data name="QuantityBombsBiggerThanFieldSize" xml:space="preserve">
     <value>Quantity bombs can't be bigger than fieldSize.</value>
+  </data>
+  <data name="UnflagCellWithoutFlag" xml:space="preserve">
+    <value>It can't be unflag a cell without flag.</value>
   </data>
 </root>

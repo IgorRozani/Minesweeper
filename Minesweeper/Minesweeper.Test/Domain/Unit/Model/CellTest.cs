@@ -54,6 +54,21 @@ namespace Minesweeper.Test.Domain.Unit.Model
         }
 
         [Test]
+        public void UnflagCell()
+        {
+            cell.Flag();
+            cell.Unflag();
+            cell.Status.Should().Be(StatusEnum.Untouched);
+        }
+
+        [Test]
+        public void UnflagCellWithoutFlag()
+        {
+            Action action = () => cell.Unflag();
+            action.ShouldThrow<MinesweeperException>();
+        }
+
+        [Test]
         public void CheckCellWithoutBomb()
         {
             cell.Check();
@@ -66,6 +81,14 @@ namespace Minesweeper.Test.Domain.Unit.Model
             cell.SetBomb();
             Action action = () => cell.Check();
             action.ShouldThrow<GameOverException>();
+        }
+
+        [Test]
+        public void CheckCellAlreadyReavealed()
+        {
+            cell.Check();
+            Action action = () => cell.Check();
+            action.ShouldThrow<MinesweeperException>();
         }
 
         [Test]

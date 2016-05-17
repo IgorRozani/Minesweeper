@@ -38,9 +38,13 @@ namespace Minesweeper.Domain.Model
 
         public void Check()
         {
+            if (Status == StatusEnum.Revealed)
+                throw new MinesweeperException(Properties.Resources.CheckCellReavealed);
+
+            Status = StatusEnum.Revealed;
+
             if (HasBomb)
                 throw new GameOverException();
-            Status = StatusEnum.Revealed;
         }
 
         public bool Equals(Cell other)
@@ -48,6 +52,13 @@ namespace Minesweeper.Domain.Model
             if (other == null)
                 return false;
             return HasBomb == other.HasBomb && Status == other.Status && QuantityBombsNear == other.QuantityBombsNear;
+        }
+
+        public void Unflag()
+        {
+            if (Status != StatusEnum.Flagged)
+                throw new MinesweeperException(Properties.Resources.UnflagCellWithoutFlag);
+            Status = StatusEnum.Untouched;
         }
 
         private bool IsUntouched()

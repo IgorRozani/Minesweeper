@@ -79,11 +79,29 @@ namespace Minesweeper.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This cell is already revealed..
+        /// </summary>
+        internal static string CheckCellReavealed {
+            get {
+                return ResourceManager.GetString("CheckCellReavealed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantity bombs can&apos;t be bigger than fieldSize..
         /// </summary>
         internal static string QuantityBombsBiggerThanFieldSize {
             get {
                 return ResourceManager.GetString("QuantityBombsBiggerThanFieldSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It can&apos;t be unflag a cell without flag..
+        /// </summary>
+        internal static string UnflagCellWithoutFlag {
+            get {
+                return ResourceManager.GetString("UnflagCellWithoutFlag", resourceCulture);
             }
         }
     }
