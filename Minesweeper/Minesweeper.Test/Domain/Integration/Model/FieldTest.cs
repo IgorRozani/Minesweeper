@@ -38,36 +38,33 @@ namespace Minesweeper.Test.Domain.Integration.Model
         }
 
         [Test]
-        public void CheckCellInTheField()
+        public void CheckCellInTheFieldWithoutBomb()
         {
             field = new Field(fieldLevel);
             var position = GetPositionWitoutBombs(field.Cells);
-            field.Check(position[0], position[1]);
-            field.Cells[position[0], position[1]].Status.Should().Be(StatusEnum.Revealed);
+            field.Check(position);
+            field.Cells[position.Row, position.Collumn].Status.Should().Be(StatusEnum.Revealed);
         }
 
         [Test]
         public void FlagCellInTheField()
         {
+            var position = new Position(0, 0);
             field = new Field(fieldLevel);
-            field.Flag(0, 0);
-            field.Cells[0,0].Status.Should().Be(StatusEnum.Flagged);
+            field.Flag(position);
+            field.Cells[position.Row, position.Collumn].Status.Should().Be(StatusEnum.Flagged);
         }
 
-        private int[] GetPositionWitoutBombs(Cell[,] cells)
+        private Position GetPositionWitoutBombs(Cell[,] cells)
         {
             var position = new int[2];
             var dimensions = cells.GetDimensionsLength();
-            for (var row = 0; row< dimensions[0]; row++)
+            for (var row = 0; row < dimensions[0]; row++)
             {
-                for(var collumn = 0; collumn < dimensions[1]; collumn++)
+                for (var collumn = 0; collumn < dimensions[1]; collumn++)
                 {
-                    if(!cells[row, collumn].HasBomb)
-                    {
-                        position[0] = row;
-                        position[1] = collumn;
-                        return position;
-                    }
+                    if (!cells[row, collumn].HasBomb)
+                        return new Position(row, collumn);
                 }
             }
             return null;

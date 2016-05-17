@@ -23,14 +23,14 @@ namespace Minesweeper.Domain.Model
             Cells = fieldDirector.CreateField(FieldLevel);
         }
 
-        public void Check(int row, int collumn)
+        public void Check(Position position)
         {
-            Cells[row, collumn].Check();
+            Cells[position.Row, position.Collumn].Check();
         }
 
-        public void Flag(int row,int collumn)
+        public void Flag(Position position)
         {
-            Cells[row, collumn].Flag();
+            Cells[position.Row, position.Collumn].Flag();
         }
     }
 }
