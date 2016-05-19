@@ -55,6 +55,16 @@ namespace Minesweeper.Test.Domain.Integration.Model
             field.Cells[position.Row, position.Collumn].Status.Should().Be(StatusEnum.Flagged);
         }
 
+        [Test]
+        public void UnflagCellInTheField()
+        {
+            var position = new Position(0, 0);
+            field = new Field(fieldLevel);
+            field.Flag(position);
+            field.Unflag(position);
+            field.Cells[position.Row, position.Collumn].Status.Should().Be(StatusEnum.Untouched);
+        }
+
         private Position GetPositionWitoutBombs(Cell[,] cells)
         {
             var position = new int[2];

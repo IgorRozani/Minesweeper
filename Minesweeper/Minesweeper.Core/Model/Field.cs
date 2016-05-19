@@ -32,5 +32,10 @@ namespace Minesweeper.Domain.Model
         {
             Cells[position.Row, position.Collumn].Flag();
         }
+
+        public void Unflag(Position position)
+        {
+            Cells[position.Row, position.Collumn].Unflag();
+        }
     }
 }
