@@ -52,6 +52,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Helper\Unit\IdentifyCellsAroundTest.cs" />
     <Compile Include="Domain\Model\Integration\FieldTest.cs" />
     <Compile Include="Domain\Core\FieldBuilder\Unit\BombBuilderTest.cs" />
     <Compile Include="Domain\Core\FieldBuilder\Unit\BombGeneratorTest.cs" />
@@ -83,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\Core\GameMechanic\Integration\" />
+    <Folder Include="Domain\Helper\Integration\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

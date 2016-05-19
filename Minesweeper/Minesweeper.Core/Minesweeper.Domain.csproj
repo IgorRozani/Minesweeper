@@ -46,7 +46,9 @@
     <Compile Include="Core\FieldBuilder\LevelBuilder.cs" />
     <Compile Include="Core\FieldBuilder\NearBombCalculator.cs" />
     <Compile Include="Core\GameMechanic\IdentifiedBombsCalculator.cs" />
+    <Compile Include="Core\Helper\IdentifyCellsAround.cs" />
     <Compile Include="Interface\IIdentifiedBombsCalculator.cs" />
+    <Compile Include="Interface\IIdentifyCellsAround.cs" />
     <Compile Include="Model\Cell.cs" />
     <Compile Include="Enumerator\DifficultyLevelEnum.cs" />
     <Compile Include="Enumerator\StatusEnum.cs" />
