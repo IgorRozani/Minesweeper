@@ -1,7 +1,7 @@
 ﻿using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Model;
 
-namespace Minesweeper.Domain.Builder
+namespace Minesweeper.Domain.Core.FieldBuilder
 {
     public class FieldDirector : IFieldDirector
     {

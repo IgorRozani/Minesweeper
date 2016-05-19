@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
-using Minesweeper.Domain.GameMechanic;
+using Minesweeper.Domain.Core.GameMechanic;
 using Minesweeper.Domain.Model;
 using Minesweeper.Test.Helper;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Domain.Unit.GameMechanic
+namespace Minesweeper.Test.Domain.Core.GameMechanic.Unit
 {
     [TestFixture]
     public class IdentifiedBombsCalculatorTest

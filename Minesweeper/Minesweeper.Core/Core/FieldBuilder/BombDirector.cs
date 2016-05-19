@@ -4,7 +4,7 @@ using Minesweeper.Library.Extension;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Minesweeper.Domain.Builder
+namespace Minesweeper.Domain.Core.FieldBuilder
 {
     public class BombDirector : IBombDirector
     {

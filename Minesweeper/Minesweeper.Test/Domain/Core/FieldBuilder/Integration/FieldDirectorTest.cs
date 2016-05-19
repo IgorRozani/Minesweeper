@@ -1,12 +1,10 @@
 ﻿using FluentAssertions;
-using Minesweeper.Domain.Builder;
+using Minesweeper.Domain.Core.FieldBuilder;
 using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Level;
-using Minesweeper.Domain.Model;
-using NSubstitute;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Domain.Integration.Builder
+namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
 {
     [TestFixture]
     public class FieldDirectorTest

@@ -1,6 +1,6 @@
 ﻿using Minesweeper.Domain.Interface;
 
-namespace Minesweeper.Domain.Builder
+namespace Minesweeper.Domain.Core.FieldBuilder
 {
     public abstract class LevelBuilder : IFieldLevel
     {

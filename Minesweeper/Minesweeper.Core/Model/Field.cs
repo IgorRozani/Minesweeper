@@ -1,4 +1,4 @@
-﻿using Minesweeper.Domain.Builder;
+﻿using Minesweeper.Domain.Core.FieldBuilder;
 using Minesweeper.Domain.Interface;
 
 namespace Minesweeper.Domain.Model

@@ -1,4 +1,4 @@
-﻿using Minesweeper.Domain.Builder;
+﻿using Minesweeper.Domain.Core.FieldBuilder;
 
 namespace Minesweeper.Domain.Level
 {

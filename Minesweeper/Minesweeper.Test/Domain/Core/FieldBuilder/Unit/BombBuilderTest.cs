@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
-using Minesweeper.Domain.Builder;
+using Minesweeper.Domain.Core.FieldBuilder;
 using Minesweeper.Library.Exception;
 using NUnit.Framework;
 using System;
 
-namespace Minesweeper.Test.Domain.Unit.Builder
+namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
 {
     [TestFixture]
     public class BombBuilderTest

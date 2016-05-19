@@ -3,7 +3,7 @@ using Minesweeper.Library.Exception;
 using System;
 using System.Collections.Generic;
 
-namespace Minesweeper.Domain.Builder
+namespace Minesweeper.Domain.Core.FieldBuilder
 {
     public class BombGenerator : IBombGenerator
     {

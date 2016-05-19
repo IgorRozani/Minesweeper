@@ -6,7 +6,7 @@ using Minesweeper.Domain.Model;
 using Minesweeper.Library.Extension;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Domain.Integration.Model
+namespace Minesweeper.Test.Domain.Model.Integration
 {
     [TestFixture]
     public class FieldTest

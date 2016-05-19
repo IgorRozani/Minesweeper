@@ -2,7 +2,7 @@
 using Minesweeper.Domain.Model;
 using System;
 
-namespace Minesweeper.Domain.GameMechanic
+namespace Minesweeper.Domain.Core.GameMechanic
 {
     public class IdentifiedBombsCalculator : IIdentifiedBombsCalculator
     {

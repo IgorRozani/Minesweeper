@@ -52,15 +52,15 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Integration\Model\FieldTest.cs" />
-    <Compile Include="Domain\Unit\Builder\BombBuilderTest.cs" />
-    <Compile Include="Domain\Unit\Builder\BombGeneratorTest.cs" />
-    <Compile Include="Domain\Integration\Builder\FieldDirectorTest.cs" />
-    <Compile Include="Domain\Unit\Builder\LevelBuilderTest.cs" />
-    <Compile Include="Domain\Unit\Builder\NearBombCalculatorTest.cs" />
-    <Compile Include="Domain\Unit\GameMechanic\IdentifiedBombsCalculatorTest.cs" />
-    <Compile Include="Domain\Unit\Model\CellTest.cs" />
-    <Compile Include="Domain\Unit\Model\GameTest.cs" />
+    <Compile Include="Domain\Model\Integration\FieldTest.cs" />
+    <Compile Include="Domain\Core\FieldBuilder\Unit\BombBuilderTest.cs" />
+    <Compile Include="Domain\Core\FieldBuilder\Unit\BombGeneratorTest.cs" />
+    <Compile Include="Domain\Core\FieldBuilder\Integration\FieldDirectorTest.cs" />
+    <Compile Include="Domain\Core\FieldBuilder\Unit\LevelBuilderTest.cs" />
+    <Compile Include="Domain\Core\FieldBuilder\Unit\NearBombCalculatorTest.cs" />
+    <Compile Include="Domain\Core\GameMechanic\Unit\IdentifiedBombsCalculatorTest.cs" />
+    <Compile Include="Domain\Model\Unit\CellTest.cs" />
+    <Compile Include="Domain\Model\Unit\GameTest.cs" />
     <Compile Include="Helper\FieldHelper.cs" />
     <Compile Include="Library\Unit\Extension\ArrayExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\Core\GameMechanic\Integration\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

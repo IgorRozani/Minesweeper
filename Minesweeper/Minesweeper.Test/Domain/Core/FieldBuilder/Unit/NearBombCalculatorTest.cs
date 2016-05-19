@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using Minesweeper.Domain.Builder;
+using Minesweeper.Domain.Core.FieldBuilder;
 using Minesweeper.Domain.Model;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Domain.Unit.Builder
+namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
 {
     [TestFixture]
     public class NearBombCalculatorTest
