@@ -23,11 +23,11 @@ namespace Minesweeper.Test.Domain.Core.GameMechanic.Unit
             position = new Position(1, 1);
         }
 
-        [Test]
-        public void CalculateFieldWithoutBombsIdentfied()
-        {
-            var result = identifiedBombsCalculator.Calculate(field, position);
-            result.Should().Be(0);
-        }
+        //[Test]
+        //public void CalculateFieldWithoutBombsIdentfied()
+        //{
+        //    var result = identifiedBombsCalculator.Calculate(field, position);
+        //    result.Should().Be(0);
+        //}
     }
 }
