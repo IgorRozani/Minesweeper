@@ -58,7 +58,7 @@
     <Compile Include="Domain\Core\FieldBuilder\Unit\BombGeneratorTest.cs" />
     <Compile Include="Domain\Core\FieldBuilder\Integration\FieldDirectorTest.cs" />
     <Compile Include="Domain\Core\FieldBuilder\Unit\LevelBuilderTest.cs" />
-    <Compile Include="Domain\Core\FieldBuilder\Unit\NearBombCalculatorTest.cs" />
+    <Compile Include="Domain\Core\FieldBuilder\Integration\NearBombCalculatorTest.cs" />
     <Compile Include="Domain\Core\GameMechanic\Unit\IdentifiedBombsCalculatorTest.cs" />
     <Compile Include="Domain\Model\Unit\CellTest.cs" />
     <Compile Include="Domain\Model\Unit\GameTest.cs" />

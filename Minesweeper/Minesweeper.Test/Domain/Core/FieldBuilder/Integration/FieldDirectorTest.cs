@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Minesweeper.Domain.Core.FieldBuilder;
+using Minesweeper.Domain.Core.Helper;
 using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Level;
 using NUnit.Framework;
@@ -22,7 +23,8 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
 
             IBombGenerator bombGenerator = new BombGenerator();
             IBombDirector bombDirector = new BombDirector(bombGenerator);
-            INearBombCalculator nearBombCalculator = new NearBombCalculator();
+            var identityCellsAround = new IdentifyCellsAround();
+            INearBombCalculator nearBombCalculator = new NearBombCalculator(identityCellsAround);
             fieldDirector = new FieldDirector(bombDirector, nearBombCalculator);
         }
 

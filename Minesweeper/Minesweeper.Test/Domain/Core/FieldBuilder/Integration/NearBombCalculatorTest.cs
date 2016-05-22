@@ -1,9 +1,10 @@
 ﻿using FluentAssertions;
 using Minesweeper.Domain.Core.FieldBuilder;
+using Minesweeper.Domain.Core.Helper;
 using Minesweeper.Domain.Model;
 using NUnit.Framework;
 
-namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
+namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
 {
     [TestFixture]
     public class NearBombCalculatorTest
@@ -37,7 +38,9 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
             expectedCells[2, 1] = new Cell();
             expectedCells[2, 2] = new Cell();
 
-            nearBombCalculator = new NearBombCalculator();
+            var identifyCellsAround = new IdentifyCellsAround();
+
+            nearBombCalculator = new NearBombCalculator(identifyCellsAround);
         }
 
         private void AssertValues()

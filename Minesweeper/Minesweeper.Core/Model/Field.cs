@@ -1,4 +1,5 @@
 ﻿using Minesweeper.Domain.Core.FieldBuilder;
+using Minesweeper.Domain.Core.Helper;
 using Minesweeper.Domain.Interface;
 
 namespace Minesweeper.Domain.Model
@@ -18,7 +19,8 @@ namespace Minesweeper.Domain.Model
         {
             IBombGenerator bombGenerator = new BombGenerator();
             IBombDirector bombDirector = new BombDirector(bombGenerator);
-            INearBombCalculator nearBombCalculator = new NearBombCalculator();
+            var identityCellsAround = new IdentifyCellsAround();
+            INearBombCalculator nearBombCalculator = new NearBombCalculator(identityCellsAround);
             IFieldDirector fieldDirector = new FieldDirector(bombDirector, nearBombCalculator);
             Cells = fieldDirector.CreateField(FieldLevel);
         }

@@ -1,15 +1,25 @@
-﻿using Minesweeper.Domain.Interface;
+﻿using Minesweeper.Domain.Core.Helper;
+using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Model;
 using Minesweeper.Library.Extension;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Minesweeper.Domain.Core.FieldBuilder
 {
     public class NearBombCalculator : INearBombCalculator
     {
+        private IdentifyCellsAround identifyCellsAround;
+        private Cell[,] field;
+
+        public NearBombCalculator(IdentifyCellsAround identifyCellsAround)
+        {
+            this.identifyCellsAround = identifyCellsAround;
+        }
+
         public Cell[,] Calculate(Cell[,] field)
         {
+            this.field = field;
+
             var lenghts = field.GetDimensionsLength();
             var rows = lenghts.FirstOrDefault();
             var collumns = lenghts.LastOrDefault();
@@ -18,31 +28,27 @@ namespace Minesweeper.Domain.Core.FieldBuilder
             {
                 for (var collumn = 0; collumn < collumns; collumn++)
                 {
-                    var quantityBombsNear = 0;
-
-                    var rowsToCheck = new List<int> { row };
-                    if (row > 0)
-                        rowsToCheck.Add(row - 1);
-                    if (row + 1 < rows)
-                        rowsToCheck.Add(row + 1);
-
-                    foreach (var rowToCheck in rowsToCheck)
-                    {
-                        if (field[rowToCheck, collumn].HasBomb && rowToCheck != row)
-                            quantityBombsNear++;
-                        if (collumn > 0)
-                            if (field[rowToCheck,collumn - 1].HasBomb)
-                                quantityBombsNear++;
-                        if (collumn + 1 < collumns)
-                            if (field[rowToCheck,collumn + 1].HasBomb)
-                                quantityBombsNear++;
-                    }
-
-                    field[row,collumn].SetQuantityBombsNear(quantityBombsNear);
+                    var currentPosition = new Position(row, collumn);
+                    field[row, collumn].SetQuantityBombsNear(QuantityBombsAround(currentPosition));
                 }
             }
 
             return field;
         }
+
+        private int QuantityBombsAround(Position position)
+        {
+            var quantityBombsNear = 0;
+
+            var positionsAround = identifyCellsAround.Identify(field, position);
+
+            foreach (var positionAround in positionsAround)
+            {
+                if (field[positionAround.Row, positionAround.Collumn].HasBomb)
+                    quantityBombsNear++;
+            }
+            return quantityBombsNear;
+        }
+
     }
 }
