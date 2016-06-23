@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
-using Minesweeper.Library.Extension;
+using Minesweeper.Domain.Extension;
+using Minesweeper.Domain.Model;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -7,56 +8,47 @@ using System.Collections.Generic;
 namespace Minesweeper.Test.Library.Unit.Extension
 {
     [TestFixture]
-    public class ArrayExtensionTest
+    public class CellArrayExtensionTest
     {
-        [Test]
-        public void GetDimensionsLengthOfNullArray()
+        private Cell[,] array;
+        private Position position;
+
+        [SetUp]
+        public void Initialize()
         {
-            int[] array = null;
+            array = null;
+            position = new Position(0, 0);
+        }
+
+        [Test]
+        public void GetDimensionsLengthFromNullArray()
+        {
             Action action = () => array.GetDimensionsLength();
             action.ShouldThrow<ArgumentNullException>();
         }
-
+        
         [Test]
-        public void GetDimensionsLengthOfOneDimensionArray()
+        public void GetDimensionsLengthFrom12x15Array()
         {
-            var array = new int[12];
-            var lengths = array.GetDimensionsLength();
-            lengths.Should().NotBeEmpty().And.HaveSameCount(new List<int> { 12 });
-        }
-
-        [Test]
-        public void GetDimensionsLengthOfTwoDimensionsArray()
-        {
-            var array = new int[12, 15];
+            array = new Cell[12, 15];
             var lengths = array.GetDimensionsLength();
             lengths.Should().NotBeEmpty().And.HaveSameCount(new List<int> { 12, 15 });
         }
 
         [Test]
-        public void GetDimensionsLengthOfThreeDimensionsArray()
+        public void GetCellFromNullArray()
         {
-            var array = new int[12, 15, 5];
-            var lengths = array.GetDimensionsLength();
-            lengths.Should().NotBeEmpty().And.HaveSameCount(new List<int> { 12, 15, 5 });
+            Action action = () => array.GetCell(position);
+            action.ShouldThrow<NullReferenceException>();
         }
 
         [Test]
-        public void GetDimensionsLengthOfFourDimensionsArray()
+        public void GetCellFrom12x15Array()
         {
-            var array = new int[12, 15, 5, 30];
-            var lengths = array.GetDimensionsLength();
-            lengths.Should().NotBeEmpty().And.HaveSameCount(new List<int> { 12, 15, 5, 30 });
-        }
-
-        [Test]
-        public void GetDimensionsLengthOfArrayOfArray()
-        {
-            var array = new int[2][];
-            array[0] = new int[3];
-            array[1] = new int[5];
-            var lengths = array.GetDimensionsLength();
-            lengths.Should().NotBeEmpty().And.HaveSameCount(new List<int> { 2 });
+            array = new Cell[12, 15];
+            array[0, 0] = new Cell();
+            var cell = array.GetCell(position);
+            cell.Should().NotBeNull();
         }
     }
 }

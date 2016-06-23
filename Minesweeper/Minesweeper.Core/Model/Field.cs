@@ -1,4 +1,5 @@
 ﻿using Minesweeper.Domain.Core.FieldBuilder;
+using Minesweeper.Domain.Core.GameMechanic;
 using Minesweeper.Domain.Core.Helper;
 using Minesweeper.Domain.Interface;
 
@@ -14,30 +15,41 @@ namespace Minesweeper.Domain.Model
 
         public Cell[,] Cells { get; private set; }
         public IFieldLevel FieldLevel { get; private set; }
+        private ICellsOpener _cellsOpener;
 
         private void CreateField()
         {
+            IIdentifyCellsAround identifyCellsAround = new IdentifyCellsAround();
+            INearBombCalculator nearBombCalculator = new NearBombCalculator(identifyCellsAround);
+
             IBombGenerator bombGenerator = new BombGenerator();
             IBombDirector bombDirector = new BombDirector(bombGenerator);
-            var identityCellsAround = new IdentifyCellsAround();
-            INearBombCalculator nearBombCalculator = new NearBombCalculator(identityCellsAround);
             IFieldDirector fieldDirector = new FieldDirector(bombDirector, nearBombCalculator);
             Cells = fieldDirector.CreateField(FieldLevel);
+
+            _cellsOpener = new CellsOpener(identifyCellsAround);
         }
 
         public void Check(Position position)
         {
-            Cells[position.Row, position.Collumn].Check();
+            GetCell(position).Check();
+
+            Cells = _cellsOpener.Check(Cells, position);
         }
 
         public void Flag(Position position)
         {
-            Cells[position.Row, position.Collumn].Flag();
+            GetCell(position).Flag();
         }
 
         public void Unflag(Position position)
         {
-            Cells[position.Row, position.Collumn].Unflag();
+            GetCell(position).Unflag();
+        }
+
+        public Cell GetCell(Position position)
+        {
+            return Cells[position.Row, position.Collumn];
         }
     }
 }

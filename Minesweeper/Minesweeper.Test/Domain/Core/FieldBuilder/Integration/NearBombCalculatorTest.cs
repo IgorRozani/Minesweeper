@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Minesweeper.Domain.Core.FieldBuilder;
 using Minesweeper.Domain.Core.Helper;
+using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Model;
 using NUnit.Framework;
 
@@ -38,7 +39,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
             expectedCells[2, 1] = new Cell();
             expectedCells[2, 2] = new Cell();
 
-            var identifyCellsAround = new IdentifyCellsAround();
+            IIdentifyCellsAround identifyCellsAround = new IdentifyCellsAround();
 
             nearBombCalculator = new NearBombCalculator(identifyCellsAround);
         }

@@ -81,9 +81,9 @@ namespace Minesweeper.Domain.Properties {
         /// <summary>
         ///   Looks up a localized string similar to This cell is already revealed..
         /// </summary>
-        internal static string CheckCellReavealed {
+        internal static string CellIsReavealed {
             get {
-                return ResourceManager.GetString("CheckCellReavealed", resourceCulture);
+                return ResourceManager.GetString("CellIsReavealed", resourceCulture);
             }
         }
         

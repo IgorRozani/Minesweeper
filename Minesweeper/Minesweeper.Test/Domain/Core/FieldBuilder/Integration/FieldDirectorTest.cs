@@ -23,8 +23,8 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
 
             IBombGenerator bombGenerator = new BombGenerator();
             IBombDirector bombDirector = new BombDirector(bombGenerator);
-            var identityCellsAround = new IdentifyCellsAround();
-            INearBombCalculator nearBombCalculator = new NearBombCalculator(identityCellsAround);
+            IIdentifyCellsAround identifyCellsAround = new IdentifyCellsAround();
+            INearBombCalculator nearBombCalculator = new NearBombCalculator(identifyCellsAround);
             fieldDirector = new FieldDirector(bombDirector, nearBombCalculator);
         }
 

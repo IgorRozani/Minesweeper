@@ -1,5 +1,5 @@
 ﻿using Minesweeper.Domain.Enumerator;
-using Minesweeper.Library.Exception;
+using Minesweeper.Domain.Exception;
 using System;
 
 namespace Minesweeper.Domain.Model
@@ -33,12 +33,14 @@ namespace Minesweeper.Domain.Model
 
         public void Flag()
         {
+            if (IsRevealed())
+                throw new MinesweeperException(Properties.Resources.CellIsReavealed);
             Status = StatusEnum.Flagged;
         }
 
         public void Unflag()
         {
-            if (Status != StatusEnum.Flagged)
+            if (!IsFlagged())
                 throw new MinesweeperException(Properties.Resources.UnflagCellWithoutFlag);
 
             Status = StatusEnum.Untouched;
@@ -46,8 +48,8 @@ namespace Minesweeper.Domain.Model
 
         public void Check()
         {
-            if (Status == StatusEnum.Revealed)
-                throw new MinesweeperException(Properties.Resources.CheckCellReavealed);
+            if (IsRevealed())
+                throw new MinesweeperException(Properties.Resources.CellIsReavealed);
 
             Status = StatusEnum.Revealed;
 
@@ -58,6 +60,21 @@ namespace Minesweeper.Domain.Model
         private bool IsUntouched()
         {
             return Status == StatusEnum.Untouched;
+        }
+
+        private bool IsFlagged()
+        {
+            return Status == StatusEnum.Flagged;
+        }
+
+        private bool IsRevealed()
+        {
+            return Status == StatusEnum.Revealed;
+        }
+
+        public bool IsFlagOrUntouched()
+        {
+            return IsUntouched() || IsFlagged();
         }
 
         public bool Equals(Cell other)

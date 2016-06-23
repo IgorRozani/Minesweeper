@@ -1,5 +1,5 @@
 ﻿using Minesweeper.Domain.Interface;
-using Minesweeper.Library.Exception;
+using Minesweeper.Domain.Exception;
 using System;
 using System.Collections.Generic;
 

@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Minesweeper.Domain.Core.FieldBuilder;
-using Minesweeper.Library.Exception;
+using Minesweeper.Domain.Exception;
 using NUnit.Framework;
 using System;
 

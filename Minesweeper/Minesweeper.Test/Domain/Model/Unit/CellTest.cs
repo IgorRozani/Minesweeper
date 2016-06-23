@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Minesweeper.Domain.Enumerator;
 using Minesweeper.Domain.Model;
-using Minesweeper.Library.Exception;
+using Minesweeper.Domain.Exception;
 using NUnit.Framework;
 using System;
 
@@ -51,6 +51,14 @@ namespace Minesweeper.Test.Domain.Model.Unit
         {
             cell.Flag();
             cell.Status.Should().Be(StatusEnum.Flagged);
+        }
+
+        [Test]
+        public void FlagCellThatIsRevealed()
+        {
+            cell.Check();
+            Action action = () => cell.Flag();
+            action.ShouldThrow<MinesweeperException>();
         }
 
         [Test]
@@ -148,5 +156,7 @@ namespace Minesweeper.Test.Domain.Model.Unit
 
             cell.Equals(expectedCell).Should().BeFalse();
         }
+
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Model;
-using Minesweeper.Library.Extension;
+using Minesweeper.Domain.Extension;
 using System.Collections.Generic;
 using System.Linq;
 

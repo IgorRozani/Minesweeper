@@ -74,10 +74,6 @@
       <Project>{75485576-9886-40e6-b34d-8d4464d62737}</Project>
       <Name>Minesweeper.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Minesweeper.Library\Minesweeper.Library.csproj">
-      <Project>{6f9a4cab-9a77-4348-976b-d109476684cc}</Project>
-      <Name>Minesweeper.Library</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

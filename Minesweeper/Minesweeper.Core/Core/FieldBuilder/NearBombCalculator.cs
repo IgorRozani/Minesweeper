@@ -1,17 +1,16 @@
-﻿using Minesweeper.Domain.Core.Helper;
-using Minesweeper.Domain.Interface;
+﻿using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Model;
-using Minesweeper.Library.Extension;
+using Minesweeper.Domain.Extension;
 using System.Linq;
 
 namespace Minesweeper.Domain.Core.FieldBuilder
 {
     public class NearBombCalculator : INearBombCalculator
     {
-        private IdentifyCellsAround identifyCellsAround;
+        private IIdentifyCellsAround identifyCellsAround;
         private Cell[,] field;
 
-        public NearBombCalculator(IdentifyCellsAround identifyCellsAround)
+        public NearBombCalculator(IIdentifyCellsAround identifyCellsAround)
         {
             this.identifyCellsAround = identifyCellsAround;
         }

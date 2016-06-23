@@ -1,5 +1,5 @@
-﻿using FluentAssertions;
-using Minesweeper.Domain.Core.GameMechanic;
+﻿using Minesweeper.Domain.Core.GameMechanic;
+using Minesweeper.Domain.Core.Helper;
 using Minesweeper.Domain.Model;
 using Minesweeper.Test.Helper;
 using NUnit.Framework;
@@ -9,14 +9,14 @@ namespace Minesweeper.Test.Domain.Core.GameMechanic.Unit
     [TestFixture]
     public class IdentifiedBombsCalculatorTest
     {
-        private IdentifiedBombsCalculator identifiedBombsCalculator;
+        private CellsOpener identifiedBombsCalculator;
         private Cell[,] field;
         private Position position;
  
         [SetUp]
         public void Initialize()
         {
-            identifiedBombsCalculator = new IdentifiedBombsCalculator();
+            //identifiedBombsCalculator = new IdentifiedBombsCalculator();
 
             field = FieldHelper.InstanciateField3x3();
 

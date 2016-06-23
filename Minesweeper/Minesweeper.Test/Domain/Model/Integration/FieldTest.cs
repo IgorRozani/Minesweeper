@@ -3,7 +3,7 @@ using Minesweeper.Domain.Enumerator;
 using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Level;
 using Minesweeper.Domain.Model;
-using Minesweeper.Library.Extension;
+using Minesweeper.Domain.Extension;
 using NUnit.Framework;
 
 namespace Minesweeper.Test.Domain.Model.Integration
@@ -24,7 +24,7 @@ namespace Minesweeper.Test.Domain.Model.Integration
         }
 
         [Test]
-        public void FieldHasCellsNotNull()
+        public void FieldHasNotCellsNull()
         {
             field = new Field(fieldLevel);
             field.Cells.Should().NotBeNullOrEmpty();
@@ -38,7 +38,7 @@ namespace Minesweeper.Test.Domain.Model.Integration
         }
 
         [Test]
-        public void CheckCellInTheFieldWithoutBomb()
+        public void CheckCellInTheFieldWithoutBombAndWithNearBomb()
         {
             field = new Field(fieldLevel);
             var position = GetPositionWitoutBombs(field.Cells);

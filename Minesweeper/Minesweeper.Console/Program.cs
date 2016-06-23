@@ -1,7 +1,7 @@
 ﻿using Minesweeper.Console.Helper;
 using Minesweeper.Domain.Enumerator;
 using Minesweeper.Domain.Model;
-using Minesweeper.Library.Exception;
+using Minesweeper.Domain.Exception;
 using System;
 using System.Collections.Generic;
 
@@ -12,7 +12,6 @@ namespace Minesweeper.Console
         private static Game game;
         static void Main(string[] args)
         {
-            System.Console.WriteLine((char)178);
             var difficulty = ChooseDifficulty();
             game = new Game();
             game.ConfigureGameDifficulty(difficulty);

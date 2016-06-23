@@ -45,9 +45,13 @@
     <Compile Include="Core\FieldBuilder\FieldDirector.cs" />
     <Compile Include="Core\FieldBuilder\LevelBuilder.cs" />
     <Compile Include="Core\FieldBuilder\NearBombCalculator.cs" />
-    <Compile Include="Core\GameMechanic\IdentifiedBombsCalculator.cs" />
+    <Compile Include="Core\GameMechanic\CellsOpener.cs" />
     <Compile Include="Core\Helper\IdentifyCellsAround.cs" />
-    <Compile Include="Interface\IIdentifiedBombsCalculator.cs" />
+    <Compile Include="Exception\GameOverException.cs" />
+    <Compile Include="Exception\MinesweeperException.cs" />
+    <Compile Include="Extension\CellArrayExtension.cs" />
+    <Compile Include="Interface\ICellsOpener.cs" />
+    <Compile Include="Interface\IIdentifyCellsAround.cs" />
     <Compile Include="Model\Cell.cs" />
     <Compile Include="Enumerator\DifficultyLevelEnum.cs" />
     <Compile Include="Enumerator\StatusEnum.cs" />
@@ -68,12 +72,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Minesweeper.Library\Minesweeper.Library.csproj">
-      <Project>{6f9a4cab-9a77-4348-976b-d109476684cc}</Project>
-      <Name>Minesweeper.Library</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
