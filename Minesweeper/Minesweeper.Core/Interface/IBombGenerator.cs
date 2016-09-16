@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Minesweeper.Domain.Model;
+using System.Collections.Generic;
 
 namespace Minesweeper.Domain.Interface
 {
     public interface IBombGenerator
     {
-        List<int> GenerateBombsPosition(int quantityBombs, int fieldSize);
+        List<Position> GenerateBombsPosition(int quantityBombs, int fieldSize, int quantityCollumns);
     }
 }

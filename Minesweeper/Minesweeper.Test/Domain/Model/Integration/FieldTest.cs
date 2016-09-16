@@ -43,7 +43,7 @@ namespace Minesweeper.Test.Domain.Model.Integration
             field = new Field(fieldLevel);
             var position = GetPositionWitoutBombs(field.Cells);
             field.Check(position);
-            field.Cells[position.Row, position.Collumn].Status.Should().Be(StatusEnum.Revealed);
+            field.Cells.GetCell(position).Status.Should().Be(StatusEnum.Revealed);
         }
 
         [Test]

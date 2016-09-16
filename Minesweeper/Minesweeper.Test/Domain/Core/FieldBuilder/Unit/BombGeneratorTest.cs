@@ -14,8 +14,9 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
     {
         private const int QUANTITY_BOMBS = 1;
         private const int FIELD_SIZE = 9;
+        private const int QUANTITY_COLUMNS = 3;
 
-        private List<int> bombsPosition;
+        private List<Position> bombsPosition;
         private BombDirector bombDirector;
         private Cell[,] sourceCells;
         private Cell[,] expectedCells;
@@ -25,7 +26,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         [SetUp]
         public void InitializeTests()
         {
-            bombsPosition = new List<int>();
+            bombsPosition = new List<Position>();
 
             sourceCells = FieldHelper.InstanciateField3x3();
             expectedCells = FieldHelper.InstanciateField3x3();
@@ -33,16 +34,16 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
             mockBombGenerator = Substitute.For<IBombGenerator>();
         }
 
-        private void ConfigureMocks(List<int> bombsPosition)
+        private void ConfigureMocks(List<Position> bombsPosition)
         {
-            mockBombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE).ReturnsForAnyArgs(bombsPosition);
+            mockBombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE, QUANTITY_COLUMNS).ReturnsForAnyArgs(bombsPosition);
             bombDirector = new BombDirector(mockBombGenerator);
         }
 
         [Test]
         public void BombDirectorPlaceBombAtFirstCell()
         {
-            bombsPosition.Add(0);
+            bombsPosition.Add(new Position(0, 0));
             ConfigureMocks(bombsPosition);
 
             expectedCells[0, 0].SetBomb();
@@ -55,7 +56,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         [Test]
         public void BombDirectorPlaceBombAtRow2Collumn2()
         {
-            bombsPosition.Add(4);
+            bombsPosition.Add(new Position(1, 1));
             ConfigureMocks(bombsPosition);
 
             expectedCells[1, 1].SetBomb();
@@ -67,7 +68,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         [Test]
         public void BombDirectorPlaceBombAtRow3Collumn1()
         {
-            bombsPosition.Add(6);
+            bombsPosition.Add(new Position(2, 0));
             ConfigureMocks(bombsPosition);
 
             expectedCells[2, 0].SetBomb();
@@ -79,7 +80,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         [Test]
         public void BombDirectorPlaceBombAtFirstRowCollumn3()
         {
-            bombsPosition.Add(2);
+            bombsPosition.Add(new Position(0, 2));
             ConfigureMocks(bombsPosition);
 
             expectedCells[0, 2].SetBomb();
@@ -91,7 +92,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         [Test]
         public void BombDirectorPlaceBombAtLastCell()
         {
-            bombsPosition.Add(8);
+            bombsPosition.Add(new Position(2, 2));
             ConfigureMocks(bombsPosition);
 
             expectedCells[2, 2].SetBomb();
@@ -103,7 +104,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         [Test]
         public void BombDirectorPlaceTwoBombs()
         {
-            bombsPosition.AddRange(new List<int> { 7, 8 });
+            bombsPosition.AddRange(new List<Position> { new Position(2, 1), new Position(2, 2) });
             ConfigureMocks(bombsPosition);
 
             expectedCells[2, 1].SetBomb();
@@ -116,7 +117,17 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         [Test]
         public void BombDirectorPlaceBombsInAllCells()
         {
-            bombsPosition.AddRange(new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 });
+            bombsPosition.AddRange(new List<Position> {
+                new Position(0, 0),
+                             new Position(0, 1),
+                             new Position(0, 2),
+                             new Position(1, 0),
+                             new Position(1, 1),
+                             new Position(1, 2),
+                             new Position(2, 0),
+                             new Position(2, 1),
+                             new Position(2, 2)
+});
             ConfigureMocks(bombsPosition);
 
             expectedCells[0, 0].SetBomb();

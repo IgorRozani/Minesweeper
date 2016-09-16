@@ -28,7 +28,7 @@ namespace Minesweeper.Domain.Core.FieldBuilder
                 for (var collumn = 0; collumn < collumns; collumn++)
                 {
                     var currentPosition = new Position(row, collumn);
-                    field[row, collumn].SetQuantityBombsNear(QuantityBombsAround(currentPosition));
+                    field.GetCell(currentPosition).SetQuantityBombsNear(QuantityBombsAround(currentPosition));
                 }
             }
 
@@ -43,7 +43,7 @@ namespace Minesweeper.Domain.Core.FieldBuilder
 
             foreach (var positionAround in positionsAround)
             {
-                if (field[positionAround.Row, positionAround.Collumn].HasBomb)
+                if (field.GetCell(positionAround).HasBomb)
                     quantityBombsNear++;
             }
             return quantityBombsNear;

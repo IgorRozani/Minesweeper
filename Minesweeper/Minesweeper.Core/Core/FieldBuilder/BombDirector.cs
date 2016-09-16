@@ -23,27 +23,19 @@ namespace Minesweeper.Domain.Core.FieldBuilder
             return PlaceBombsInField(bombsPosition);
         }
 
-        private List<int> GenerateBombsPosition(int quantityBombs)
-        {
-            return _bombGenerator.GenerateBombsPosition(quantityBombs, GetFieldSize());
-        }
-
-        private Cell[,] PlaceBombsInField(List<int> bombsPosition)
+        private List<Position> GenerateBombsPosition(int quantityBombs)
         {
             var dimensionsLength = _cells.GetDimensionsLength();
             var quantityCollumns = dimensionsLength.LastOrDefault();
+            
+            return _bombGenerator.GenerateBombsPosition(quantityBombs, GetFieldSize(), quantityCollumns);
+        }
 
-            foreach (var bombPosition in bombsPosition)
-            {
-                if (bombPosition == 0)
-                    _cells[0, 0].SetBomb();
-                else
-                {
-                    var row = bombPosition / quantityCollumns;
-                    var collumn = bombPosition % quantityCollumns;
-                    _cells[row, collumn].SetBomb();
-                }
-            }
+        private Cell[,] PlaceBombsInField(List<Position> bombsPosition)
+        {
+            foreach (var position in bombsPosition)
+                _cells.GetCell(position).SetBomb();
+
             return _cells;
         }
 
