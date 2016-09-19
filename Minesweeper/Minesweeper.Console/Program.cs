@@ -15,6 +15,7 @@ namespace Minesweeper.Console
             var difficulty = ChooseDifficulty();
             game = new Game();
             game.ConfigureGameDifficulty(difficulty);
+            PrintField();
         }
 
         private static DifficultyLevelEnum ChooseDifficulty()
@@ -24,7 +25,7 @@ namespace Minesweeper.Console
             {
                 try
                 {
-                   ConsoleHelper.PrintTexts(GetConfigurationMessages());
+                    ConsoleHelper.PrintTexts(GetConfigurationMessages());
                     var valueRead = Convert.ToInt32(System.Console.ReadLine());
                     return ConvertToDifficultityLevelEnum(valueRead);
                 }
@@ -60,12 +61,34 @@ namespace Minesweeper.Console
             var rows = game.Field.FieldLevel.QuantityRows();
             var collumns = game.Field.FieldLevel.QuantityCollumns();
 
-            for(var row = 0; row < rows; row++)
+            for (var row = 0; row < rows; row++)
             {
-                for(var collumn = 0; collumn < collumns; collumn++)
+                for (var collumn = 0; collumn < collumns; collumn++)
                 {
+                    var text = string.Empty;
+                    var position = new Position(row, collumn);
+                    var cell = game.Field.GetCell(position);
+                    if (cell.HasBomb)
+                        text = "B";
+                    else
+                    {
+                        switch (cell.Status)
+                        {
+                            case StatusEnum.Untouched:
+                                text = "U";
+                                break;
+                            case StatusEnum.Revealed:
+                                text = "R";
+                                break;
+                            case StatusEnum.Flagged:
+                                text = "F";
+                                break;
+                        }
+                    }
 
+                    System.Console.Write(string.Format("{0} ", text));
                 }
+                System.Console.WriteLine();
             }
         }
     }
