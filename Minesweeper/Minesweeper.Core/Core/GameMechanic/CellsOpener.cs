@@ -2,6 +2,7 @@
 using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Model;
 using System;
+using System.Collections.Generic;
 
 namespace Minesweeper.Domain.Core.GameMechanic
 {
@@ -18,6 +19,8 @@ namespace Minesweeper.Domain.Core.GameMechanic
         public Cell[,] Check(Cell[,] field, Position position)
         {
             var cell = field.GetCell(position);
+            var positionsAround = _identifyCellsAround.Identify(field, position);
+
             throw new NotImplementedException();
         }
 
@@ -30,6 +33,6 @@ namespace Minesweeper.Domain.Core.GameMechanic
         //    }
         //}
 
-        
+
     }
 }

@@ -34,7 +34,7 @@ namespace Minesweeper.Domain.Model
         {
             GetCell(position).Check();
 
-            Cells = _cellsOpener.Check(Cells, position);
+            //Cells = _cellsOpener.Check(Cells, position);
         }
 
         public void Flag(Position position)

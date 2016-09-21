@@ -88,6 +88,15 @@ namespace Minesweeper.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game over!.
+        /// </summary>
+        internal static string GameOverMessage {
+            get {
+                return ResourceManager.GetString("GameOverMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantity bombs can&apos;t be bigger than fieldSize..
         /// </summary>
         internal static string QuantityBombsBiggerThanFieldSize {

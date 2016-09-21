@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CheckAction" xml:space="preserve">
+    <value>0 - Check</value>
+  </data>
+  <data name="ChooseAction" xml:space="preserve">
+    <value>Choose your action:</value>
+  </data>
   <data name="ChooseDifficulty" xml:space="preserve">
-    <value>Choose the game dificulty</value>
+    <value>Choose the game dificulty:</value>
+  </data>
+  <data name="CommandFailMessage" xml:space="preserve">
+    <value>The command fail, try again!</value>
   </data>
   <data name="EasyDifficultyOption" xml:space="preserve">
     <value>0 - Easy</value>
+  </data>
+  <data name="FlagAction" xml:space="preserve">
+    <value>1- Flag</value>
   </data>
   <data name="HardDifficultyOption" xml:space="preserve">
     <value>2 - Hard</value>
@@ -131,5 +143,17 @@
   </data>
   <data name="MediumDifficultyOption" xml:space="preserve">
     <value>1 - Medium</value>
+  </data>
+  <data name="ReadCollumn" xml:space="preserve">
+    <value>Collumn:</value>
+  </data>
+  <data name="ReadRow" xml:space="preserve">
+    <value>Row:</value>
+  </data>
+  <data name="TryAgainMessage" xml:space="preserve">
+    <value>{0} Try again!</value>
+  </data>
+  <data name="UnflagAction" xml:space="preserve">
+    <value>2- Unflag</value>
   </data>
 </root>

@@ -61,11 +61,38 @@ namespace Minesweeper.Console.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose the game dificulty.
+        ///   Looks up a localized string similar to 0 - Check.
+        /// </summary>
+        internal static string CheckAction {
+            get {
+                return ResourceManager.GetString("CheckAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose your action:.
+        /// </summary>
+        internal static string ChooseAction {
+            get {
+                return ResourceManager.GetString("ChooseAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the game dificulty:.
         /// </summary>
         internal static string ChooseDifficulty {
             get {
                 return ResourceManager.GetString("ChooseDifficulty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The command fail, try again!.
+        /// </summary>
+        internal static string CommandFailMessage {
+            get {
+                return ResourceManager.GetString("CommandFailMessage", resourceCulture);
             }
         }
         
@@ -75,6 +102,15 @@ namespace Minesweeper.Console.Properties {
         internal static string EasyDifficultyOption {
             get {
                 return ResourceManager.GetString("EasyDifficultyOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1- Flag.
+        /// </summary>
+        internal static string FlagAction {
+            get {
+                return ResourceManager.GetString("FlagAction", resourceCulture);
             }
         }
         
@@ -102,6 +138,42 @@ namespace Minesweeper.Console.Properties {
         internal static string MediumDifficultyOption {
             get {
                 return ResourceManager.GetString("MediumDifficultyOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Collumn:.
+        /// </summary>
+        internal static string ReadCollumn {
+            get {
+                return ResourceManager.GetString("ReadCollumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Row:.
+        /// </summary>
+        internal static string ReadRow {
+            get {
+                return ResourceManager.GetString("ReadRow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Try again!.
+        /// </summary>
+        internal static string TryAgainMessage {
+            get {
+                return ResourceManager.GetString("TryAgainMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2- Unflag.
+        /// </summary>
+        internal static string UnflagAction {
+            get {
+                return ResourceManager.GetString("UnflagAction", resourceCulture);
             }
         }
     }

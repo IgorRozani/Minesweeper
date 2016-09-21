@@ -126,6 +126,9 @@
   <data name="CellIsReavealed" xml:space="preserve">
     <value>This cell is already revealed.</value>
   </data>
+  <data name="GameOverMessage" xml:space="preserve">
+    <value>Game over!</value>
+  </data>
   <data name="QuantityBombsBiggerThanFieldSize" xml:space="preserve">
     <value>Quantity bombs can't be bigger than fieldSize.</value>
   </data>
