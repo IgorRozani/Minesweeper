@@ -126,9 +126,9 @@ namespace Minesweeper.Console.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Option invalid!.
         /// </summary>
-        internal static string InvalidDifficulty {
+        internal static string InvalidOption {
             get {
-                return ResourceManager.GetString("InvalidDifficulty", resourceCulture);
+                return ResourceManager.GetString("InvalidOption", resourceCulture);
             }
         }
         

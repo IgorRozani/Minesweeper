@@ -28,36 +28,48 @@ namespace Minesweeper.Console
             while (continuePlaying)
             {
                 PrintField();
-                continuePlaying = CheckAction();
+                continuePlaying = Action();
             }
         }
 
         private static DifficultyLevelEnum ChooseDifficulty()
         {
-            var selectedDifficulty = false;
-            while (!selectedDifficulty)
+            var difficulty = DifficultyLevelEnum.Easy;
+
+            var hasSelectedDifficulty = false;
+            while (!hasSelectedDifficulty)
             {
                 try
                 {
                     ConsoleHelper.PrintTexts(GetConfigurationTexts());
                     var valueRead = Convert.ToInt32(System.Console.ReadLine());
-                    return ConvertToDifficultityLevelEnum(valueRead);
+                    difficulty = ConvertToDifficultityLevelEnum(valueRead);
+
+                    hasSelectedDifficulty = true;
                 }
                 catch (Exception)
                 {
-                    ConsoleHelper.PrintTexts(Properties.Resources.InvalidDifficulty, string.Empty);
+                    ConsoleHelper.PrintTexts(Properties.Resources.InvalidOption, string.Empty);
                 }
             }
 
-            throw new GameOverException();
+            return difficulty;
         }
 
         private static DifficultyLevelEnum ConvertToDifficultityLevelEnum(int value)
         {
             if (value < 0 || value > 2)
-                throw new MinesweeperException(Properties.Resources.InvalidDifficulty);
+                throw new MinesweeperException(Properties.Resources.InvalidOption);
 
             return (DifficultyLevelEnum)value;
+        }
+
+        private static ActionEnum ConvertToactionEnum(int value)
+        {
+            if (value < 0 || value > 2)
+                throw new MinesweeperException(Properties.Resources.InvalidOption);
+
+            return (ActionEnum)value;
         }
 
         private static string[] GetConfigurationTexts()
@@ -80,23 +92,60 @@ namespace Minesweeper.Console
             return texts.ToArray();
         }
 
-        private static bool CheckAction()
+        private static ActionEnum ChooseAction()
+        {
+            var action = ActionEnum.Check;
+
+            var hasSelectedAction = false;
+            while (!hasSelectedAction)
+            {
+                try
+                {
+                    ConsoleHelper.PrintTexts(GetActionTexts());
+                    var valueRead = Convert.ToInt32(System.Console.ReadLine());
+                    action = ConvertToactionEnum(valueRead);
+
+                    hasSelectedAction = true;
+                }
+                catch (Exception)
+                {
+                    ConsoleHelper.PrintTexts(Properties.Resources.InvalidOption, string.Empty);
+                }
+            }
+
+            return action;
+        }
+
+        private static bool Action()
         {
             try
             {
+                var action = ChooseAction();
                 var position = GetPositionTyped();
-                _game.Field.Check(position);
+
+                switch (action)
+                {
+                    case ActionEnum.Check:
+                        _game.Field.Check(position);
+                        break;
+                    case ActionEnum.Flag:
+                        _game.Field.Flag(position);
+                        break;
+                    case ActionEnum.Unflag:
+                        _game.Field.Unflag(position);
+                        break;
+                }
 
                 System.Console.Clear();
 
                 return true;
             }
-            catch(GameOverException ex)
+            catch (GameOverException ex)
             {
                 System.Console.WriteLine(ex.Message);
                 return false;
             }
-            catch(MinesweeperException ex)
+            catch (MinesweeperException ex)
             {
                 System.Console.WriteLine(string.Format(Properties.Resources.TryAgainMessage, ex.Message));
                 return true;

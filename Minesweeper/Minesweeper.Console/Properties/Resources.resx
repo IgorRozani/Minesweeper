@@ -138,7 +138,7 @@
   <data name="HardDifficultyOption" xml:space="preserve">
     <value>2 - Hard</value>
   </data>
-  <data name="InvalidDifficulty" xml:space="preserve">
+  <data name="InvalidOption" xml:space="preserve">
     <value>Option invalid!</value>
   </data>
   <data name="MediumDifficultyOption" xml:space="preserve">

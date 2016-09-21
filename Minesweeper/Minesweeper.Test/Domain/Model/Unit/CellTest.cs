@@ -100,6 +100,14 @@ namespace Minesweeper.Test.Domain.Model.Unit
         }
 
         [Test]
+        public void CheckCellFlagged()
+        {
+            cell.Flag();
+            Action action = () => cell.Check();
+            action.ShouldThrow<MinesweeperException>();
+        }
+
+        [Test]
         public void SetQuantityNearBombsInCheckedCell()
         {
             cell.Check();
