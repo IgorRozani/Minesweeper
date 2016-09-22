@@ -123,6 +123,9 @@
   <data name="CellIsCheckedPlaceBomb" xml:space="preserve">
     <value>It can't be place a bomb in a checked cell.</value>
   </data>
+  <data name="CellIsFlagged" xml:space="preserve">
+    <value>It can't be checked a flagged cell.</value>
+  </data>
   <data name="CellIsReavealed" xml:space="preserve">
     <value>This cell is already revealed.</value>
   </data>

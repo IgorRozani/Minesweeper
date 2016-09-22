@@ -79,6 +79,15 @@ namespace Minesweeper.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It can&apos;t be checked a flagged cell..
+        /// </summary>
+        internal static string CellIsFlagged {
+            get {
+                return ResourceManager.GetString("CellIsFlagged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This cell is already revealed..
         /// </summary>
         internal static string CellIsReavealed {

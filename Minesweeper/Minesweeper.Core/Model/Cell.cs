@@ -51,6 +51,9 @@ namespace Minesweeper.Domain.Model
             if (IsRevealed())
                 throw new MinesweeperException(Properties.Resources.CellIsReavealed);
 
+            if (IsFlagged())
+                throw new MinesweeperException(Properties.Resources.CellIsFlagged);
+
             Status = StatusEnum.Revealed;
 
             if (HasBomb)
