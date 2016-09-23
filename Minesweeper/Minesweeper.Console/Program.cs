@@ -187,7 +187,7 @@ namespace Minesweeper.Console
                             text = "U";
                             break;
                         case StatusEnum.Revealed:
-                            text = "R";
+                            text = cell.QuantityBombsNear.ToString();
                             break;
                         case StatusEnum.Flagged:
                             text = "F";
