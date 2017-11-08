@@ -1,8 +1,8 @@
 language: csharp
 solution: "./Minesweeper/Minesweeper.sln"
-before_install:
+install:
   - sudo apt-get install nunit-console
-before_script:
   - nuget restore ./Minesweeper/Minesweeper.sln
-after_script:
+script:
+  - xbuild ./Minesweeper/Minesweeper.sln
   - nunit-console ./Minesweeper/Minesweeper.Test/bin/Release/Minesweeper.Test.dll
