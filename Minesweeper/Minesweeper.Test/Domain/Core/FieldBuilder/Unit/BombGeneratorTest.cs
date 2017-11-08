@@ -81,7 +81,6 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         [Test]
         public void BombDirectorPlaceBombAtFirstRowCollumn3()
         {
-            throw new Exception();
             bombsPosition.Add(new Position(0, 2));
             ConfigureMocks(bombsPosition);
 
