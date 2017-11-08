@@ -5,4 +5,4 @@ install:
   - nuget restore ./Minesweeper/Minesweeper.sln
 script:
   - xbuild ./Minesweeper/Minesweeper.sln
-  - nunit-console ./Minesweeper/Minesweeper.Test/bin/Release/Minesweeper.Test.dll
+  - nunit-console ./Minesweeper/Minesweeper.Test/bin/Debug/Minesweeper.Test.dll
