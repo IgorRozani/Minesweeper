@@ -5,6 +5,7 @@ using Minesweeper.Domain.Model;
 using Minesweeper.Test.Helper;
 using NSubstitute;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
@@ -80,6 +81,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         [Test]
         public void BombDirectorPlaceBombAtFirstRowCollumn3()
         {
+            throw new Exception();
             bombsPosition.Add(new Position(0, 2));
             ConfigureMocks(bombsPosition);
 
