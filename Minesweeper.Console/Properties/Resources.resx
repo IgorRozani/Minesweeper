@@ -133,7 +133,7 @@
     <value>0 - Easy</value>
   </data>
   <data name="FlagAction" xml:space="preserve">
-    <value>1- Flag</value>
+    <value>1 - Flag</value>
   </data>
   <data name="HardDifficultyOption" xml:space="preserve">
     <value>2 - Hard</value>
@@ -154,6 +154,6 @@
     <value>{0} Try again!</value>
   </data>
   <data name="UnflagAction" xml:space="preserve">
-    <value>2- Unflag</value>
+    <value>2 - Unflag</value>
   </data>
 </root>
