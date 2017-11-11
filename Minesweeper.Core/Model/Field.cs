@@ -14,7 +14,7 @@ namespace Minesweeper.Domain.Model
         }
 
         public Cell[,] Cells { get; private set; }
-        public IFieldLevel FieldLevel { get; private set; }
+        public IFieldLevel FieldLevel { get; }
         private ICellsOpener _cellsOpener;
 
         private void CreateField()

@@ -8,7 +8,7 @@
             Collumn = collumn;
         }
 
-        public int Row { get; private set; }
-        public int Collumn { get; private set; }
+        public int Row { get; }
+        public int Collumn { get; }
     }
 }

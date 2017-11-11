@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace Minesweeper.Domain.Exception
+﻿namespace Minesweeper.Domain.Exception
 {
     public class GameOverException : System.Exception
     {
