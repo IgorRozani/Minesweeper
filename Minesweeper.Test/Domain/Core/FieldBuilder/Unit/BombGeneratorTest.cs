@@ -41,7 +41,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void BombDirectorPlaceBombAtFirstCell()
+        public void GenerateBombs_AtFirstCell_ReturnBombInFirstCell()
         {
             bombsPosition.Add(new Position(0, 0));
             ConfigureMocks(bombsPosition);
@@ -54,7 +54,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void BombDirectorPlaceBombAtRow2Collumn2()
+        public void GenerateBombs_AtRow2Collumn2_ReturnBombAtRow2Collumn2()
         {
             bombsPosition.Add(new Position(1, 1));
             ConfigureMocks(bombsPosition);
@@ -66,7 +66,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void BombDirectorPlaceBombAtRow3Collumn1()
+        public void GenerateBombs_AtRow3Collumn1_ReturnBombAtRow3Collumn1()
         {
             bombsPosition.Add(new Position(2, 0));
             ConfigureMocks(bombsPosition);
@@ -78,7 +78,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void BombDirectorPlaceBombAtFirstRowCollumn3()
+        public void GenerateBombs_AtFirstRowCollumn3_ReturnBombAtFirstRowCollumn3()
         {
             bombsPosition.Add(new Position(0, 2));
             ConfigureMocks(bombsPosition);
@@ -90,7 +90,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void BombDirectorPlaceBombAtLastCell()
+        public void GenerateBombs_AtLastCell_ReturnBombAtLastCell()
         {
             bombsPosition.Add(new Position(2, 2));
             ConfigureMocks(bombsPosition);
@@ -102,7 +102,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void BombDirectorPlaceTwoBombs()
+        public void GenerateBombs_PlaceTwoBombs_ReturnTwoBombs()
         {
             bombsPosition.AddRange(new List<Position> { new Position(2, 1), new Position(2, 2) });
             ConfigureMocks(bombsPosition);
@@ -115,7 +115,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void BombDirectorPlaceBombsInAllCells()
+        public void GenerateBombs_InAllCells_ReturnBombInAllCells()
         {
             bombsPosition.AddRange(new List<Position> {
                 new Position(0, 0),

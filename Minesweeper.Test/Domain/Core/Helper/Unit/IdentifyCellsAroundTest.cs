@@ -28,7 +28,7 @@ namespace Minesweeper.Test.Domain.Core.Helper.Unit
         }
 
         [Test]
-        public void IdentifyCellArroundFirstCellInFirstRow()
+        public void Identify_FirstCellInFirstRow_Return3Cells()
         {
             _position = new Position(0, 0);
             _expectedPositions.Add(new Position(0, 1));
@@ -40,7 +40,7 @@ namespace Minesweeper.Test.Domain.Core.Helper.Unit
         }
 
         [Test]
-        public void IdentifyCellArroundMiddleCellInFirstRow()
+        public void Identify_MiddleCellInFirstRow_Return5Cells()
         {
             _position = new Position(0, 1);
             _expectedPositions.Add(new Position(0, 0));
@@ -54,7 +54,7 @@ namespace Minesweeper.Test.Domain.Core.Helper.Unit
         }
 
         [Test]
-        public void IdentifyCellArroundLastCellInFirstRow()
+        public void Identify_LastCellInFirstRow_Return3Cells()
         {
             _position = new Position(0, 2);
             _expectedPositions.Add(new Position(0, 1));
@@ -66,7 +66,7 @@ namespace Minesweeper.Test.Domain.Core.Helper.Unit
         }
 
         [Test]
-        public void IdentifyCellArroundFirstCellInMiddleRow()
+        public void Identify_FirstCellInMiddleRow_Return5Cells()
         {
             _position = new Position(1, 0);
             _expectedPositions.Add(new Position(0, 0));
@@ -80,7 +80,7 @@ namespace Minesweeper.Test.Domain.Core.Helper.Unit
         }
 
         [Test]
-        public void IdentifyCellArroundMiddleField()
+        public void Identify_MiddleField_Return8Cells()
         {
             _position = new Position(1, 1);
             _expectedPositions.Add(new Position(0, 0));
@@ -97,7 +97,7 @@ namespace Minesweeper.Test.Domain.Core.Helper.Unit
         }
 
         [Test]
-        public void IdentifyCellArroundLastCellInMiddleRow()
+        public void Identify_LastCellInMiddleRow_Return5Cells()
         {
             _position = new Position(1, 2);
             _expectedPositions.Add(new Position(0, 1));
@@ -111,7 +111,7 @@ namespace Minesweeper.Test.Domain.Core.Helper.Unit
         }
 
         [Test]
-        public void IdentifyCellArroundFirstCellInLastRow()
+        public void Identify_FirstCellInLastRow_Return3Cells()
         {
             _position = new Position(2, 0);
             _expectedPositions.Add(new Position(1, 0));
@@ -123,7 +123,7 @@ namespace Minesweeper.Test.Domain.Core.Helper.Unit
         }
 
         [Test]
-        public void IdentifyCellArroundMiddleCellInLastRow()
+        public void Identify_MiddleCellInLastRow_Return5Cells()
         {
             _position = new Position(2, 1);
             _expectedPositions.Add(new Position(1, 0));
@@ -137,7 +137,7 @@ namespace Minesweeper.Test.Domain.Core.Helper.Unit
         }
 
         [Test]
-        public void IdentifyCellArroundLastCellInLastRow()
+        public void Identify_LastCellInLastRow_Return3Cells()
         {
             _position = new Position(2, 2);
             _expectedPositions.Add(new Position(1, 1));

@@ -19,7 +19,7 @@ namespace Minesweeper.Domain.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -97,11 +97,38 @@ namespace Minesweeper.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This cell already has bomb.
+        /// </summary>
+        internal static string FieldAlreadyHasBomb {
+            get {
+                return ResourceManager.GetString("FieldAlreadyHasBomb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game over!.
         /// </summary>
         internal static string GameOverMessage {
             get {
                 return ResourceManager.GetString("GameOverMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid bomb quantity.
+        /// </summary>
+        internal static string InvalidBombQuantity {
+            get {
+                return ResourceManager.GetString("InvalidBombQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid game level!.
+        /// </summary>
+        internal static string InvalidGameLevel {
+            get {
+                return ResourceManager.GetString("InvalidGameLevel", resourceCulture);
             }
         }
         

@@ -26,7 +26,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
         }
 
         [Test]
-        public void FieldDirectorGenerateCellsNotNull()
+        public void CreateField_GenerateCells_ReturnInstanciateCells()
         {
             var generateField = _fieldDirector.CreateField(_fieldLevel);
 

@@ -20,6 +20,9 @@ namespace Minesweeper.Domain.Model
             if (!IsUntouched())
                 throw new MinesweeperException(Properties.Resources.CellIsCheckedPlaceBomb);
 
+            if(HasBomb)
+                throw new MinesweeperException(Properties.Resources.FieldAlreadyHasBomb);
+
             HasBomb = true;
         }
 

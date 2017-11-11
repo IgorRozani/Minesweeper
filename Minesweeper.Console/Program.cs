@@ -147,7 +147,7 @@ namespace Minesweeper.Console
             }
             catch (MinesweeperException ex)
             {
-                System.Console.WriteLine(string.Format(Properties.Resources.TryAgainMessage, ex.Message));
+                System.Console.WriteLine(Properties.Resources.TryAgainMessage, ex.Message);
                 return true;
             }
             catch (Exception)
@@ -194,7 +194,7 @@ namespace Minesweeper.Console
                             break;
                     }
 
-                    System.Console.Write(string.Format("{0} ", text));
+                    System.Console.Write($"{text} ");
                 }
                 System.Console.WriteLine();
             }

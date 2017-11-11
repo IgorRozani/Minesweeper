@@ -1,7 +1,7 @@
 ﻿using Minesweeper.Domain.Enumerator;
+using Minesweeper.Domain.Exception;
 using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Level;
-using System;
 
 namespace Minesweeper.Domain.Model
 {
@@ -31,7 +31,7 @@ namespace Minesweeper.Domain.Model
                     fieldLevel = new HardLevel();
                     break;
                 default:
-                    throw new NotImplementedException();
+                    throw new MinesweeperException(Properties.Resources.InvalidGameLevel);
             }
             Field = new Field(fieldLevel);
         }
