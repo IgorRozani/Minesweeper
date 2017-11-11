@@ -2,7 +2,7 @@ language: csharp
 solution: Minesweeper.sln
 install:
   - nuget restore Minesweeper.sln
-  - nuget install NUnit.Runners -Version 3.2.0 -OutputDirectory testrunner
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release Minesweeper.sln
-  - mono /home/travis/build/IgorRozani/Minesweeper/testrunner/NUnit.ConsoleRunner.3.2.0/tools/nunit-console.exe ./Minesweeper.Test/bin/Release/Minesweeper.Test.dll
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Minesweeper.Test/bin/Release/Minesweeper.Test.dll
