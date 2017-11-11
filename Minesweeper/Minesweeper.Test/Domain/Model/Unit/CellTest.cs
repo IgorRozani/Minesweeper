@@ -165,6 +165,27 @@ namespace Minesweeper.Test.Domain.Model.Unit
             cell.Equals(expectedCell).Should().BeFalse();
         }
 
+        [Test]
+        public void IsFlagOrUntouched_StatusNotFlagOrUntouched_ReturnFalse()
+        {
+            cell.Check();
+            var status = cell.IsFlagOrUntouched();
+            status.Should().BeFalse();
+        }
 
+        [Test]
+        public void IsFlagOrUntouched_StatusUntouched_ReturnTrue()
+        {
+            var status = cell.IsFlagOrUntouched();
+            status.Should().BeTrue();
+        }
+
+        [Test]
+        public void IsFlagOrUntouched_StatusFlag_ReturnTrue()
+        {
+            cell.Flag();
+            var status = cell.IsFlagOrUntouched();
+            status.Should().BeTrue();
+        }
     }
 }
