@@ -132,6 +132,9 @@
   <data name="GameOverMessage" xml:space="preserve">
     <value>Game over!</value>
   </data>
+  <data name="InvalidGameLevel" xml:space="preserve">
+    <value>Invalid game level!</value>
+  </data>
   <data name="QuantityBombsBiggerThanFieldSize" xml:space="preserve">
     <value>Quantity bombs can't be bigger than fieldSize.</value>
   </data>
