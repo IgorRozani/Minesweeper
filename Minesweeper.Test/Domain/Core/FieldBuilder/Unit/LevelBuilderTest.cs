@@ -30,7 +30,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void LevelBuilderCalculateQuantityBombsWithValidNumbers()
+        public void QuantiyBombs_20Bombs_Return20Bombs()
         {
             SetQuantityInMock(QUANTITY_ROWS_EVEN, QUANTITY_COLUMNS_EVEN);
 
@@ -40,7 +40,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void LevelBuilderCalculateQuantityBombsWithDecimalSmallerThanFive()
+        public void QuantiyBombs_SixteenDotTwoBombs_ReturnSixteenBombs()
         {
             SetQuantityInMock(QUANTITY_ROWS_ODD_SMALLER, QUANTITY_COLUMNS_ODD_SMALLER);
 
@@ -50,7 +50,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void LevelBuilderCalculateQuantityBombsWithDecimalGreaterThanFive()
+        public void QuantiyBombs_OneDotEightBombsReturnOneBomb()
         {
             SetQuantityInMock(QUANTITY_ROWS_ODD_GREATER, QUANTITY_COLUMNS_ODD_GREATER);
 
@@ -60,7 +60,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         }
 
         [Test]
-        public void LevelBuilderCalculateQuatityCells()
+        public void Size_TenRowsTenCollumsn_ReturnSize100()
         {
             SetQuantityInMock(QUANTITY_ROWS_EVEN, QUANTITY_COLUMNS_EVEN);
 

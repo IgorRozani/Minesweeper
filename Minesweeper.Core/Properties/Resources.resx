@@ -129,8 +129,14 @@
   <data name="CellIsReavealed" xml:space="preserve">
     <value>This cell is already revealed.</value>
   </data>
+  <data name="FieldAlreadyHasBomb" xml:space="preserve">
+    <value>This cell already has bomb</value>
+  </data>
   <data name="GameOverMessage" xml:space="preserve">
     <value>Game over!</value>
+  </data>
+  <data name="InvalidBombQuantity" xml:space="preserve">
+    <value>Invalid bomb quantity</value>
   </data>
   <data name="InvalidGameLevel" xml:space="preserve">
     <value>Invalid game level!</value>

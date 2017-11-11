@@ -10,14 +10,8 @@ namespace Minesweeper.Domain.Core.FieldBuilder
 
         public abstract int QuantityCollumns();
 
-        public int QuantiyBombs()
-        {
-            return (int)(Size() * BOMBS_PERCENT);
-        }
+        public int QuantiyBombs() => (int)(Size() * BOMBS_PERCENT);
 
-        public int Size()
-        {
-            return QuantityRows() * QuantityCollumns();
-        }
+        public int Size() => QuantityRows() * QuantityCollumns();
     }
 }

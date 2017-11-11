@@ -97,11 +97,29 @@ namespace Minesweeper.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This cell already has bomb.
+        /// </summary>
+        internal static string FieldAlreadyHasBomb {
+            get {
+                return ResourceManager.GetString("FieldAlreadyHasBomb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game over!.
         /// </summary>
         internal static string GameOverMessage {
             get {
                 return ResourceManager.GetString("GameOverMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid bomb quantity.
+        /// </summary>
+        internal static string InvalidBombQuantity {
+            get {
+                return ResourceManager.GetString("InvalidBombQuantity", resourceCulture);
             }
         }
         

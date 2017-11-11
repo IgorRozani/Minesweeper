@@ -10,6 +10,9 @@ namespace Minesweeper.Domain.Core.FieldBuilder
     {
         public List<Position> GenerateBombsPosition(int quantityBombs, int fieldSize, int quantityCollumns)
         {
+            if(quantityBombs < 0)
+                throw  new MinesweeperException(Properties.Resources.InvalidBombQuantity);
+
             if (quantityBombs > fieldSize)
                 throw new MinesweeperException(Properties.Resources.QuantityBombsBiggerThanFieldSize);
 

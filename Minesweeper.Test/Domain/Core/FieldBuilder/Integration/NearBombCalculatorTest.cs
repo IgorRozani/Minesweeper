@@ -51,7 +51,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
         }
 
         [Test]
-        public void NearBombCalculatorCalculateABombInFirstPosition()
+        public void Calculate_BombInFirstPosition_ReturnBombInFirstPosition()
         {
             _sourceCells[0, 0].SetBomb();
 
@@ -64,7 +64,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
         }
 
         [Test]
-        public void NearBombCalculatorCalculateABombInLastPosition()
+        public void Calculate_BombInLastPosition_ReturnBombInLastPosition()
         {
             _sourceCells[2, 2].SetBomb();
 
@@ -77,7 +77,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
         }
 
         [Test]
-        public void NearBombCalculatorCalculateABombInTheMiddle()
+        public void Calculate_BombInTheMiddle_ReturnBombInTheMiddle()
         {
             _sourceCells[1, 1].SetBomb();
 
@@ -95,7 +95,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
         }
 
         [Test]
-        public void NearBombCalculatorCalculateAFieldWith2Bombs()
+        public void Calculate_2Bombs_ReturnFieldWith2Bombs()
         {
             _sourceCells[0, 0].SetBomb();
             _sourceCells[0, 1].SetBomb();
@@ -113,7 +113,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
         }
 
         [Test]
-        public void NearBombCalculatorCalculate8Bombs()
+        public void Calculate_8Bombs_Return8Bombs()
         {
             _sourceCells[0, 0].SetBomb();
             _sourceCells[0, 1].SetBomb();
@@ -148,7 +148,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Integration
         }
 
         [Test]
-        public void NearBombCalculatorCalculate0Bombs()
+        public void Calculate_0Bombs_Return0Bombs()
         {
             AssertValues();
         }
