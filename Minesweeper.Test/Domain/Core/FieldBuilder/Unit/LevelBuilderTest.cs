@@ -15,18 +15,18 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         private const int QUANTITY_ROWS_ODD_GREATER = 3;
         private const int QUANTITY_COLUMNS_ODD_GREATER = 3;
 
-        private LevelBuilder mockLevelBuilder;
+        private LevelBuilder _mockLevelBuilder;
 
         [SetUp]
         public void InitializeTests()
         {
-            mockLevelBuilder = Substitute.For<LevelBuilder>();
+            _mockLevelBuilder = Substitute.For<LevelBuilder>();
         }
 
         private void SetQuantityInMock(int rows, int columns)
         {
-            mockLevelBuilder.QuantityCollumns().Returns(columns);
-            mockLevelBuilder.QuantityRows().Returns(rows);
+            _mockLevelBuilder.QuantityCollumns().Returns(columns);
+            _mockLevelBuilder.QuantityRows().Returns(rows);
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         {
             SetQuantityInMock(QUANTITY_ROWS_EVEN, QUANTITY_COLUMNS_EVEN);
 
-            var quantityBombs = mockLevelBuilder.QuantiyBombs();
+            var quantityBombs = _mockLevelBuilder.QuantiyBombs();
 
             quantityBombs.Should().Be(20);
         }
@@ -44,7 +44,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         {
             SetQuantityInMock(QUANTITY_ROWS_ODD_SMALLER, QUANTITY_COLUMNS_ODD_SMALLER);
 
-            var quantityBombs = mockLevelBuilder.QuantiyBombs();
+            var quantityBombs = _mockLevelBuilder.QuantiyBombs();
 
             quantityBombs.Should().Be(16);
         }
@@ -54,7 +54,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         {
             SetQuantityInMock(QUANTITY_ROWS_ODD_GREATER, QUANTITY_COLUMNS_ODD_GREATER);
 
-            var quantityBombs = mockLevelBuilder.QuantiyBombs();
+            var quantityBombs = _mockLevelBuilder.QuantiyBombs();
 
             quantityBombs.Should().Be(1);
         }
@@ -64,7 +64,7 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         {
             SetQuantityInMock(QUANTITY_ROWS_EVEN, QUANTITY_COLUMNS_EVEN);
 
-            var quantityCells = mockLevelBuilder.Size();
+            var quantityCells = _mockLevelBuilder.Size();
 
             quantityCells.Should().Be(100);
         }

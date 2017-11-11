@@ -16,39 +16,39 @@ namespace Minesweeper.Test.Domain.Core.FieldBuilder.Unit
         private const int QUANTITY_BOMBS = 20;
         private const int QUANTITY_ZERO_BOMBS = 0;
 
-        private BombGenerator bombGenerator;
+        private BombGenerator _bombGenerator;
 
         [SetUp]
         public void InitializeTests()
         {
-            bombGenerator = new BombGenerator();
+            _bombGenerator = new BombGenerator();
         }
 
         [Test]
         public void BombGeneratorGenerateTwentyBombs()
         {
-            var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE, QUANTITY_COLUMNS);
+            var bombs = _bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE, QUANTITY_COLUMNS);
             bombs.Should().NotBeNullOrEmpty().And.HaveCount(QUANTITY_BOMBS);
         }
 
         [Test]
         public void BombGeneratorDontGenerateBombsInSamePosition()
         {
-            var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE, QUANTITY_COLUMNS);
+            var bombs = _bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE, QUANTITY_COLUMNS);
             bombs.Should().NotBeNullOrEmpty().And.OnlyHaveUniqueItems();
         }
 
         [Test]
         public void BombGeneratorGenerateZeroBombs()
         {
-            var bombs = bombGenerator.GenerateBombsPosition(QUANTITY_ZERO_BOMBS, FIELD_SIZE, QUANTITY_COLUMNS);
+            var bombs = _bombGenerator.GenerateBombsPosition(QUANTITY_ZERO_BOMBS, FIELD_SIZE, QUANTITY_COLUMNS);
             bombs.Should().NotBeNull().And.HaveCount(QUANTITY_ZERO_BOMBS);
         }
 
         [Test]
         public void BombGeneratorTryGenerateMoreBombsThanFieldSize()
         {
-            Action act = () => bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE_SMALL, QUANTITY_COLUMNS_SMALL);
+            Action act = () => _bombGenerator.GenerateBombsPosition(QUANTITY_BOMBS, FIELD_SIZE_SMALL, QUANTITY_COLUMNS_SMALL);
             act.ShouldThrow<MinesweeperException>();
         }
     }

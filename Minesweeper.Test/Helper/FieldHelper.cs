@@ -4,7 +4,7 @@ namespace Minesweeper.Test.Helper
 {
     public static class FieldHelper
     {
-        public static Cell[,] InstanciateField3x3()
+        public static Cell[,] InstanciateField3X3()
         {
             var field = new Cell[3, 3];
 

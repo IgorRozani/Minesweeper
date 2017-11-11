@@ -7,17 +7,17 @@ namespace Minesweeper.Domain.Core.FieldBuilder
 {
     public class NearBombCalculator : INearBombCalculator
     {
-        private IIdentifyCellsAround identifyCellsAround;
-        private Cell[,] field;
+        private IIdentifyCellsAround _identifyCellsAround;
+        private Cell[,] _field;
 
         public NearBombCalculator(IIdentifyCellsAround identifyCellsAround)
         {
-            this.identifyCellsAround = identifyCellsAround;
+            _identifyCellsAround = identifyCellsAround;
         }
 
         public Cell[,] Calculate(Cell[,] field)
         {
-            this.field = field;
+            _field = field;
 
             var lenghts = field.GetDimensionsLength();
             var rows = lenghts.FirstOrDefault();
@@ -39,11 +39,11 @@ namespace Minesweeper.Domain.Core.FieldBuilder
         {
             var quantityBombsNear = 0;
 
-            var positionsAround = identifyCellsAround.Identify(field, position);
+            var positionsAround = _identifyCellsAround.Identify(_field, position);
 
             foreach (var positionAround in positionsAround)
             {
-                if (field.GetCell(positionAround).HasBomb)
+                if (_field.GetCell(positionAround).HasBomb)
                     quantityBombsNear++;
             }
             return quantityBombsNear;

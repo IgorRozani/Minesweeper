@@ -18,7 +18,7 @@ namespace Minesweeper.Test.Domain.Core.GameMechanic.Unit
         {
             //identifiedBombsCalculator = new IdentifiedBombsCalculator();
 
-            field = FieldHelper.InstanciateField3x3();
+            field = FieldHelper.InstanciateField3X3();
 
             position = new Position(1, 1);
         }

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Minesweeper.Console
 {
-    class Program
+    public class Program
     {
         private static Game _game;
 

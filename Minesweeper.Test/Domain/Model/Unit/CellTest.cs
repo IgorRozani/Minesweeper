@@ -10,181 +10,181 @@ namespace Minesweeper.Test.Domain.Model.Unit
     [TestFixture]
     public class CellTest
     {
-        private Cell cell;
-        private Cell expectedCell;
+        private Cell _cell;
+        private Cell _expectedCell;
 
         [SetUp]
         public void Initialize()
         {
-            cell = new Cell();
-            expectedCell = new Cell();
+            _cell = new Cell();
+            _expectedCell = new Cell();
         }
 
         [Test]
         public void CreateUntouchedCell()
         {
-            cell.Status.Should().Be(StatusEnum.Untouched);
+            _cell.Status.Should().Be(StatusEnum.Untouched);
         }
 
         [Test]
         public void ConfigureCellWithBomb()
         {
-            cell.SetBomb();
-            cell.HasBomb.Should().BeTrue();
+            _cell.SetBomb();
+            _cell.HasBomb.Should().BeTrue();
         }
 
         [Test]
         public void ConfigureCellWithoutBomb()
         {
-            cell.HasBomb.Should().BeFalse();
+            _cell.HasBomb.Should().BeFalse();
         }
 
         [Test]
         public void ConfigureCellWith5BombsNear()
         {
-            cell.SetQuantityBombsNear(5);
-            cell.QuantityBombsNear.Should().Be(5);
+            _cell.SetQuantityBombsNear(5);
+            _cell.QuantityBombsNear.Should().Be(5);
         }
 
         [Test]
         public void FlagCell()
         {
-            cell.Flag();
-            cell.Status.Should().Be(StatusEnum.Flagged);
+            _cell.Flag();
+            _cell.Status.Should().Be(StatusEnum.Flagged);
         }
 
         [Test]
         public void FlagCellThatIsRevealed()
         {
-            cell.Check();
-            Action action = () => cell.Flag();
+            _cell.Check();
+            Action action = () => _cell.Flag();
             action.ShouldThrow<MinesweeperException>();
         }
 
         [Test]
         public void UnflagCell()
         {
-            cell.Flag();
-            cell.Unflag();
-            cell.Status.Should().Be(StatusEnum.Untouched);
+            _cell.Flag();
+            _cell.Unflag();
+            _cell.Status.Should().Be(StatusEnum.Untouched);
         }
 
         [Test]
         public void UnflagCellWithoutFlag()
         {
-            Action action = () => cell.Unflag();
+            Action action = () => _cell.Unflag();
             action.ShouldThrow<MinesweeperException>();
         }
 
         [Test]
         public void CheckCellWithoutBomb()
         {
-            cell.Check();
-            cell.Status.Should().Be(StatusEnum.Revealed);
+            _cell.Check();
+            _cell.Status.Should().Be(StatusEnum.Revealed);
         }
 
         [Test]
         public void CheckCellWithBomb()
         {
-            cell.SetBomb();
-            Action action = () => cell.Check();
+            _cell.SetBomb();
+            Action action = () => _cell.Check();
             action.ShouldThrow<GameOverException>();
         }
 
         [Test]
         public void CheckCellAlreadyReavealed()
         {
-            cell.Check();
-            Action action = () => cell.Check();
+            _cell.Check();
+            Action action = () => _cell.Check();
             action.ShouldThrow<MinesweeperException>();
         }
 
         [Test]
         public void CheckCellFlagged()
         {
-            cell.Flag();
-            Action action = () => cell.Check();
+            _cell.Flag();
+            Action action = () => _cell.Check();
             action.ShouldThrow<MinesweeperException>();
         }
 
         [Test]
         public void SetQuantityNearBombsInCheckedCell()
         {
-            cell.Check();
-            Action action = () => cell.SetQuantityBombsNear(4);
+            _cell.Check();
+            Action action = () => _cell.SetQuantityBombsNear(4);
             action.ShouldThrow<MinesweeperException>();
         }
 
         [Test]
         public void SetBombInCheckedCell()
         {
-            cell.Check();
-            Action action = () => cell.SetBomb();
+            _cell.Check();
+            Action action = () => _cell.SetBomb();
             action.ShouldThrow<MinesweeperException>();
         }
 
         [Test]
         public void CompareCellsWithSameQuantityBombsAndNearBombsAndStatus()
         {
-            cell.Equals(expectedCell).Should().BeTrue();
+            _cell.Equals(_expectedCell).Should().BeTrue();
         }
 
         [Test]
         public void CompareCellsWithDifferentQuantityNearBombs()
         {
-            expectedCell.SetQuantityBombsNear(5);
-            cell.SetQuantityBombsNear(2);
+            _expectedCell.SetQuantityBombsNear(5);
+            _cell.SetQuantityBombsNear(2);
 
-            cell.Equals(expectedCell).Should().BeFalse();
+            _cell.Equals(_expectedCell).Should().BeFalse();
         }
 
         [Test]
         public void CompareCellsWithAndWithoutBomb()
         {
-            expectedCell.SetBomb();
+            _expectedCell.SetBomb();
 
-            cell.Equals(expectedCell).Should().BeFalse();
+            _cell.Equals(_expectedCell).Should().BeFalse();
         }
 
         [Test]
         public void CompareCellsWithDifferentStatus()
         {
-            expectedCell.Check();
+            _expectedCell.Check();
 
-            cell.Equals(expectedCell).Should().BeFalse();
+            _cell.Equals(_expectedCell).Should().BeFalse();
         }
 
         [Test]
         public void CompareCellsWithDifferentQuantityBombsAndNearBombsAndStatus()
         {
-            expectedCell.SetQuantityBombsNear(3);
-            expectedCell.Check();
+            _expectedCell.SetQuantityBombsNear(3);
+            _expectedCell.Check();
 
-            cell.SetBomb();
+            _cell.SetBomb();
 
-            cell.Equals(expectedCell).Should().BeFalse();
+            _cell.Equals(_expectedCell).Should().BeFalse();
         }
 
         [Test]
         public void IsFlagOrUntouched_StatusNotFlagOrUntouched_ReturnFalse()
         {
-            cell.Check();
-            var status = cell.IsFlagOrUntouched();
+            _cell.Check();
+            var status = _cell.IsFlagOrUntouched();
             status.Should().BeFalse();
         }
 
         [Test]
         public void IsFlagOrUntouched_StatusUntouched_ReturnTrue()
         {
-            var status = cell.IsFlagOrUntouched();
+            var status = _cell.IsFlagOrUntouched();
             status.Should().BeTrue();
         }
 
         [Test]
         public void IsFlagOrUntouched_StatusFlag_ReturnTrue()
         {
-            cell.Flag();
-            var status = cell.IsFlagOrUntouched();
+            _cell.Flag();
+            var status = _cell.IsFlagOrUntouched();
             status.Should().BeTrue();
         }
     }

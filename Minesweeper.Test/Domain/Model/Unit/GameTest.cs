@@ -8,20 +8,20 @@ namespace Minesweeper.Test.Domain.Model.Unit
     [TestFixture]
     public class GameTest
     {
-        private Game game;
+        private Game _game;
 
         [SetUp]
         public void GameInitialize()
         {
-            game = new Game();
+            _game = new Game();
         }
 
         [Test]
         public void GetConfiguredGameDifficultity()
         {
-            game.ConfigureGameDifficulty(DifficultyLevelEnum.Easy);
+            _game.ConfigureGameDifficulty(DifficultyLevelEnum.Easy);
 
-            game.Difficulty.Should().Be(DifficultyLevelEnum.Easy);
+            _game.Difficulty.Should().Be(DifficultyLevelEnum.Easy);
         }
     }
 }
