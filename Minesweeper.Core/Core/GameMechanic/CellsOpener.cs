@@ -1,7 +1,6 @@
 ﻿using Minesweeper.Domain.Extension;
 using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Model;
-using System;
 
 namespace Minesweeper.Domain.Core.GameMechanic
 {
@@ -15,23 +14,29 @@ namespace Minesweeper.Domain.Core.GameMechanic
             _identifyCellsAround = identifyCellsAround;
         }
 
-        public Cell[,] Check(Cell[,] field, Position position)
+        public void Check(Cell[,] field, Position position)
         {
             var cell = field.GetCell(position);
+
+            if (cell.IsRevealed() || cell.IsFlagged())
+                return;
+
+            cell.Check();
+
+            if (cell.QuantityBombsNear > 0)
+                return;
+
             var positionsAround = _identifyCellsAround.Identify(field, position);
 
-            throw new NotImplementedException();
+            foreach (var positionAround in positionsAround)
+            {
+                var currentCell = field.GetCell(positionAround);
+                currentCell.Check();
+                if (currentCell.QuantityBombsNear == 0)
+                {
+                    Check(field, positionAround);
+                }
+            }
         }
-
-        //private int QuantityFieldsAndFlagsAround(List<Position> positionsAround)
-        //{
-        //    var quantity = 0;
-        //    foreach (var position in positionsAround)
-        //    {
-        //        if (fields)
-        //    }
-        //}
-
-
     }
 }

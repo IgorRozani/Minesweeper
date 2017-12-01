@@ -4,6 +4,6 @@ namespace Minesweeper.Domain.Interface
 {
     public interface ICellsOpener
     {
-        Cell[,] Check(Cell[,] field, Position position);
+        void Check(Cell[,] field, Position position);
     }
 }

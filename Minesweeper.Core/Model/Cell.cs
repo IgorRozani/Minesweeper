@@ -20,7 +20,7 @@ namespace Minesweeper.Domain.Model
             if (!IsUntouched())
                 throw new MinesweeperException(Properties.Resources.CellIsCheckedPlaceBomb);
 
-            if(HasBomb)
+            if (HasBomb)
                 throw new MinesweeperException(Properties.Resources.FieldAlreadyHasBomb);
 
             HasBomb = true;
@@ -68,12 +68,12 @@ namespace Minesweeper.Domain.Model
             return Status == StatusEnum.Untouched;
         }
 
-        private bool IsFlagged()
+        public bool IsFlagged()
         {
             return Status == StatusEnum.Flagged;
         }
 
-        private bool IsRevealed()
+        public bool IsRevealed()
         {
             return Status == StatusEnum.Revealed;
         }

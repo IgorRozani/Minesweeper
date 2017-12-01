@@ -32,9 +32,9 @@ namespace Minesweeper.Domain.Model
 
         public void Check(Position position)
         {
-            GetCell(position).Check();
+            //GetCell(position).Check();
 
-            //Cells = _cellsOpener.Check(Cells, position);
+            _cellsOpener.Check(Cells, position);
         }
 
         public void Flag(Position position)
