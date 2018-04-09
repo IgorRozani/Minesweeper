@@ -4,6 +4,10 @@ using Minesweeper.Domain.Model;
 using Minesweeper.Domain.Exception;
 using System;
 using System.Collections.Generic;
+using Minesweeper.Domain.Core.FieldBuilder;
+using Minesweeper.Domain.Core.GameMechanic;
+using Minesweeper.Domain.Core.Helper;
+using Minesweeper.Domain.Interface;
 
 namespace Minesweeper.Console
 {
@@ -14,7 +18,18 @@ namespace Minesweeper.Console
         static void Main(string[] args)
         {
             var difficulty = ChooseDifficulty();
-            _game = new Game();
+
+
+            IIdentifyCellsAround identifyCellsAround = new IdentifyCellsAround();
+            INearBombCalculator nearBombCalculator = new NearBombCalculator(identifyCellsAround);
+
+            IBombGenerator bombGenerator = new BombGenerator();
+            IBombDirector bombDirector = new BombDirector(bombGenerator);
+            IFieldDirector fieldDirector = new FieldDirector(bombDirector, nearBombCalculator);
+
+            ICellsOpener cellsOpener = new CellsOpener(identifyCellsAround);
+
+            _game = new Game(fieldDirector, cellsOpener);
             _game.ConfigureGameDifficulty(difficulty);
 
             PlayGame();

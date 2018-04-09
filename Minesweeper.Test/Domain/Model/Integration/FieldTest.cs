@@ -5,6 +5,8 @@ using Minesweeper.Domain.Level;
 using Minesweeper.Domain.Model;
 using Minesweeper.Domain.Extension;
 using NUnit.Framework;
+using NSubstitute;
+using NSubstitute.Core.Arguments;
 
 namespace Minesweeper.Test.Domain.Model.Integration
 {
@@ -14,70 +16,64 @@ namespace Minesweeper.Test.Domain.Model.Integration
         private const int QUANTITY_COLUMNS = 10;
         private const int QUANTITY_ROWS = 10;
 
-        private IFieldLevel fieldLevel;
-        private Field field;
+        private Field _field;
+        private Position _position;
+        private ICellsOpener _cellsOpener;
 
         [OneTimeSetUp]
         public void Initialize()
         {
-            fieldLevel = new EasyLevel();
+            var field = new Cell[1, 1];
+            field[0, 0] = new Cell();
+
+            var fieldDirector = Substitute.For<IFieldDirector>();
+
+            fieldDirector.CreateField(Arg.Any<IFieldLevel>()).Returns(field);
+
+            _cellsOpener = Substitute.For<ICellsOpener>();
+            _field = new Field(fieldDirector, _cellsOpener);
+
+            _position = new Position(0, 0);
+        }
+
+        [SetUp]
+        public void Setup()
+        {
+            _field.CreateField(new EasyLevel());
         }
 
         [Test]
         public void FieldHasNotCellsNull()
         {
-            field = new Field(fieldLevel);
-            field.Cells.Should().NotBeNullOrEmpty();
+            _field.Cells.Should().NotBeNullOrEmpty();
         }
 
         [Test]
         public void FieldHasValueInFieldLevel()
         {
-            field = new Field(fieldLevel);
-            field.FieldLevel.Should().NotBeNull();
+            _field.FieldLevel.Should().NotBeNull();
         }
 
         [Test]
         public void CheckCellInTheFieldWithoutBombAndWithNearBomb()
         {
-            field = new Field(fieldLevel);
-            var position = GetPositionWitoutBombs(field.Cells);
-            field.Check(position);
-            field.Cells.GetCell(position).Status.Should().Be(StatusEnum.Revealed);
+            _field.Check(_position);
+            _cellsOpener.Received().Check(_field.Cells, _position);
         }
 
         [Test]
         public void FlagCellInTheField()
         {
-            var position = new Position(0, 0);
-            field = new Field(fieldLevel);
-            field.Flag(position);
-            field.Cells[position.Row, position.Collumn].Status.Should().Be(StatusEnum.Flagged);
+            _field.Flag(_position);
+            _field.Cells[_position.Row, _position.Collumn].Status.Should().Be(StatusEnum.Flagged);
         }
 
         [Test]
         public void UnflagCellInTheField()
         {
-            var position = new Position(0, 0);
-            field = new Field(fieldLevel);
-            field.Flag(position);
-            field.Unflag(position);
-            field.Cells[position.Row, position.Collumn].Status.Should().Be(StatusEnum.Untouched);
-        }
-
-        private Position GetPositionWitoutBombs(Cell[,] cells)
-        {
-            var position = new int[2];
-            var dimensions = cells.GetDimensionsLength();
-            for (var row = 0; row < dimensions[0]; row++)
-            {
-                for (var collumn = 0; collumn < dimensions[1]; collumn++)
-                {
-                    if (!cells[row, collumn].HasBomb)
-                        return new Position(row, collumn);
-                }
-            }
-            return null;
+            _field.Flag(_position);
+            _field.Unflag(_position);
+            _field.Cells[_position.Row, _position.Collumn].Status.Should().Be(StatusEnum.Untouched);
         }
     }
 }

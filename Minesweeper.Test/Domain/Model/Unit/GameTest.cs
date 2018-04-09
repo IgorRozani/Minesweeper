@@ -1,7 +1,9 @@
 ﻿using FluentAssertions;
 using Minesweeper.Domain.Enumerator;
 using Minesweeper.Domain.Exception;
+using Minesweeper.Domain.Interface;
 using Minesweeper.Domain.Model;
+using NSubstitute;
 using NUnit.Framework;
 using System;
 
@@ -15,7 +17,9 @@ namespace Minesweeper.Test.Domain.Model.Unit
         [SetUp]
         public void GameInitialize()
         {
-            _game = new Game();
+            var fieldDirector = Substitute.For<IFieldDirector>();
+            var cellsOpener = Substitute.For<ICellsOpener>();
+            _game = new Game(fieldDirector, cellsOpener);
         }
 
         [Test]
