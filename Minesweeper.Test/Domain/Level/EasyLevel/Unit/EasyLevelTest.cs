@@ -15,14 +15,14 @@ namespace Minesweeper.Test.Domain.Level.EasyLevel.Unit
         }
 
         [Test]
-        public void QuantityRows_Return10()
+        public void EasyLevel_QuantityRows_Return10()
         {
             var quantityRows = _easyLevel.QuantityRows();
             quantityRows.Should().Be(10);
         }
 
         [Test]
-        public void QuantityCollumns_Return10()
+        public void EasyLevel_QuantityCollumns_Return10()
         {
             var quantityCollumns = _easyLevel.QuantityCollumns();
             quantityCollumns.Should().Be(10);

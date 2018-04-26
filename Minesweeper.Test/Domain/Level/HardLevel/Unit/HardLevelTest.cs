@@ -15,14 +15,14 @@ namespace Minesweeper.Test.Domain.Level.HardLevel.Unit
         }
 
         [Test]
-        public void QuantityRows_Return30()
+        public void HardLevel_QuantityRows_Return30()
         {
             var quantityRows = _hardLevel.QuantityRows();
             quantityRows.Should().Be(30);
         }
 
         [Test]
-        public void QuantityCollumns_Return30()
+        public void HardLevel_QuantityCollumns_Return30()
         {
             var quantityCollumns = _hardLevel.QuantityCollumns();
             quantityCollumns.Should().Be(30);

@@ -21,14 +21,14 @@ namespace Minesweeper.Test.Library.Unit.Extension
         }
 
         [Test]
-        public void GetDimensionsLengthFromNullArray()
+        public void CellArrayExtension_GetDimensionsLength_FromNullArray()
         {
             Action action = () => _array.GetDimensionsLength();
             action.ShouldThrow<ArgumentNullException>();
         }
         
         [Test]
-        public void GetDimensionsLengthFrom12x15Array()
+        public void CellArrayExtension_GetDimensionsLength_From12x15Array()
         {
             _array = new Cell[12, 15];
             var lengths = _array.GetDimensionsLength();
@@ -36,14 +36,14 @@ namespace Minesweeper.Test.Library.Unit.Extension
         }
 
         [Test]
-        public void GetCellFromNullArray()
+        public void CellArrayExtension_GetCell_FromNullArray()
         {
             Action action = () => _array.GetCell(_position);
             action.ShouldThrow<NullReferenceException>();
         }
 
         [Test]
-        public void GetCellFrom12x15Array()
+        public void CellArrayExtension_GetCell_From12x15Array()
         {
             _array = new Cell[12, 15];
             _array[0, 0] = new Cell();

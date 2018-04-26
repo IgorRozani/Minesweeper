@@ -16,14 +16,14 @@ namespace Minesweeper.Test.Domain.Level.MediumLevel.Unit
         }
 
         [Test]
-        public void QuantityRows_Return20()
+        public void MediumLevel_QuantityRows_Return20()
         {
             var quantityRows = _mediumLevel.QuantityRows();
             quantityRows.Should().Be(20);
         }
 
         [Test]
-        public void QuantityCollumns_Return20()
+        public void MediumLevel_QuantityCollumns_Return20()
         {
             var quantityCollumns = _mediumLevel.QuantityCollumns();
             quantityCollumns.Should().Be(20);

@@ -43,33 +43,33 @@ namespace Minesweeper.Test.Domain.Model.Integration
         }
 
         [Test]
-        public void FieldHasNotCellsNull()
+        public void Field_Cells_HasNotCellsNull()
         {
             _field.Cells.Should().NotBeNullOrEmpty();
         }
 
         [Test]
-        public void FieldHasValueInFieldLevel()
+        public void Field_FieldLevel_HasValueInFieldLevel()
         {
             _field.FieldLevel.Should().NotBeNull();
         }
 
         [Test]
-        public void CheckCellInTheFieldWithoutBombAndWithNearBomb()
+        public void Field_Check_CheckCellInTheFieldWithoutBombAndWithNearBomb()
         {
             _field.Check(_position);
             _cellsOpener.Received().Check(_field.Cells, _position);
         }
 
         [Test]
-        public void FlagCellInTheField()
+        public void Field_Flag_FlagCellInTheField()
         {
             _field.Flag(_position);
             _field.Cells[_position.Row, _position.Collumn].Status.Should().Be(StatusEnum.Flagged);
         }
 
         [Test]
-        public void UnflagCellInTheField()
+        public void Field_Unflag_UnflagCellInTheField()
         {
             _field.Flag(_position);
             _field.Unflag(_position);
