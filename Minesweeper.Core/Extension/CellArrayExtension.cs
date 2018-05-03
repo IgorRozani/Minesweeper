@@ -6,10 +6,7 @@ namespace Minesweeper.Domain.Extension
 {
     public static class CellArrayExtension
     {
-        public static Cell GetCell(this Cell[,] source, Position position)
-        {
-            return source[position.Row, position.Collumn];
-        }
+        public static Cell GetCell(this Cell[,] source, Position position) => source[position.Row, position.Collumn];
 
         public static List<int> GetDimensionsLength(this Cell[,] source)
         {

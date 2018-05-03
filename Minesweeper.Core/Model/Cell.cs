@@ -63,31 +63,15 @@ namespace Minesweeper.Domain.Model
                 throw new GameOverException();
         }
 
-        private bool IsUntouched()
-        {
-            return Status == StatusEnum.Untouched;
-        }
+        private bool IsUntouched() => Status == StatusEnum.Untouched;
 
-        public bool IsFlagged()
-        {
-            return Status == StatusEnum.Flagged;
-        }
+        public bool IsFlagged() => Status == StatusEnum.Flagged;
 
-        public bool IsRevealed()
-        {
-            return Status == StatusEnum.Revealed;
-        }
+        public bool IsRevealed() => Status == StatusEnum.Revealed;
 
-        public bool IsFlagOrUntouched()
-        {
-            return IsUntouched() || IsFlagged();
-        }
+        public bool IsFlagOrUntouched() => IsUntouched() || IsFlagged();
 
-        public bool Equals(Cell other)
-        {
-            if (other == null)
-                return false;
-            return HasBomb == other.HasBomb && Status == other.Status && QuantityBombsNear == other.QuantityBombsNear;
-        }
+        public bool Equals(Cell other) => 
+            other != null && HasBomb == other.HasBomb && Status == other.Status && QuantityBombsNear == other.QuantityBombsNear;
     }
 }
