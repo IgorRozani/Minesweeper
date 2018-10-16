@@ -89,21 +89,25 @@ namespace Minesweeper.Console
 
         private static string[] GetConfigurationTexts()
         {
-            var texts = new List<string>();
-            texts.Add(Properties.Resources.ChooseDifficulty);
-            texts.Add(Properties.Resources.EasyDifficultyOption);
-            texts.Add(Properties.Resources.MediumDifficultyOption);
-            texts.Add(Properties.Resources.HardDifficultyOption);
+            var texts = new List<string>
+            {
+                Properties.Resources.ChooseDifficulty,
+                Properties.Resources.EasyDifficultyOption,
+                Properties.Resources.MediumDifficultyOption,
+                Properties.Resources.HardDifficultyOption
+            };
             return texts.ToArray();
         }
 
         private static string[] GetActionTexts()
         {
-            var texts = new List<string>();
-            texts.Add(Properties.Resources.ChooseAction);
-            texts.Add(Properties.Resources.CheckAction);
-            texts.Add(Properties.Resources.FlagAction);
-            texts.Add(Properties.Resources.UnflagAction);
+            var texts = new List<string>
+            {
+                Properties.Resources.ChooseAction,
+                Properties.Resources.CheckAction,
+                Properties.Resources.FlagAction,
+                Properties.Resources.UnflagAction
+            };
             return texts.ToArray();
         }
 
