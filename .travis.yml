@@ -1,6 +1,6 @@
 language: csharp
 mono: none
-dotnet: 2.1.40
+dotnet: 2.1
 solution: Minesweeper.sln
 install:
   - nuget restore Minesweeper.sln
