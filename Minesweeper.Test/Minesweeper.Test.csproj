@@ -53,35 +53,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Core\Helper\Unit\IdentifyCellsAroundTest.cs" />
-    <Compile Include="Domain\Level\EasyLevel\Unit\EasyLevelTest.cs" />
-    <Compile Include="Domain\Level\HardLevel\Unit\HardLevelTest.cs" />
-    <Compile Include="Domain\Level\MediumLevel\Unit\MediumLevelTest.cs" />
-    <Compile Include="Domain\Model\Integration\FieldTest.cs" />
     <Compile Include="Domain\Core\FieldBuilder\Unit\BombBuilderTest.cs" />
     <Compile Include="Domain\Core\FieldBuilder\Unit\BombGeneratorTest.cs" />
-    <Compile Include="Domain\Core\FieldBuilder\Integration\FieldDirectorTest.cs" />
     <Compile Include="Domain\Core\FieldBuilder\Unit\LevelBuilderTest.cs" />
     <Compile Include="Domain\Core\FieldBuilder\Integration\NearBombCalculatorTest.cs" />
-    <Compile Include="Domain\Core\GameMechanic\Unit\IdentifiedBombsCalculatorTest.cs" />
-    <Compile Include="Domain\Model\Unit\CellTest.cs" />
-    <Compile Include="Domain\Model\Unit\GameTest.cs" />
     <Compile Include="Helper\FieldHelper.cs" />
-    <Compile Include="Library\Unit\Extension\ArrayExtensionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Minesweeper.Core\Minesweeper.Domain.csproj">
-      <Project>{75485576-9886-40e6-b34d-8d4464d62737}</Project>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Minesweeper.Domain\Minesweeper.Domain.csproj">
+      <Project>{ed5ae9e4-661e-4418-b09a-12dafe0399b4}</Project>
       <Name>Minesweeper.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
