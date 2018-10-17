@@ -5,8 +5,6 @@ dotnet: 2.1
 solution: Minesweeper.sln
 install:
     - dotnet restore
-    - dotnet restore xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
-  - dotnet build
   - xbuild /p:Configuration=Release Minesweeper.sln
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./Minesweeper.Test/bin/Release/Minesweeper.Domain.Test.dll
