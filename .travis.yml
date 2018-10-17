@@ -3,8 +3,6 @@ dist: trusty
 mono: none
 dotnet: 2.1
 solution: Minesweeper.sln
-install:
-    - dotnet restore
 script:
-  - xbuild /p:Configuration=Release Minesweeper.sln
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./Minesweeper.Test/bin/Release/Minesweeper.Domain.Test.dll
+    - dotnet restore
+    - dotnet test ./Minesweeper.Domain.Test/Minesweeper.Domain.Test.csproj -c Release
