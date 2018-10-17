@@ -1,8 +1,11 @@
 language: csharp
+mono: none
+dotnet: 2.1.40
 solution: Minesweeper.sln
 install:
   - nuget restore Minesweeper.sln
-  - nuget install NUnit.Runners -Version 3.2.0 -OutputDirectory testrunner
+  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
+  - dotnet restore
   - xbuild /p:Configuration=Release Minesweeper.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.2.0/tools/nunit3-console.exe ./Minesweeper.Test/bin/Release/Minesweeper.Test.dll
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./Minesweeper.Test/bin/Release/Minesweeper.Domain.Test.dll
