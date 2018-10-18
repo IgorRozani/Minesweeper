@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Domain", "Minesweeper.Core\Minesweeper.Domain.csproj", "{75485576-9886-40E6-B34D-8D4464D62737}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minesweeper.Domain", "Minesweeper.Domain\Minesweeper.Domain.csproj", "{ED5AE9E4-661E-4418-B09A-12DAFE0399B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Test", "Minesweeper.Test\Minesweeper.Test.csproj", "{4E7F8DCC-FCB7-4C48-9BE9-595F8D70E05F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minesweeper.UI", "Minesweeper.UI\Minesweeper.UI.csproj", "{0A6687FC-5768-4DDE-B34A-B1D04E262D05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Console", "Minesweeper.Console\Minesweeper.Console.csproj", "{2DA677D8-B322-4527-9193-8738123FC5E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minesweeper.Domain.Test", "Minesweeper.Domain.Test\Minesweeper.Domain.Test.csproj", "{6A5C4257-0B92-49FB-81A6-A5B0DFD317EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{75485576-9886-40E6-B34D-8D4464D62737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75485576-9886-40E6-B34D-8D4464D62737}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75485576-9886-40E6-B34D-8D4464D62737}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75485576-9886-40E6-B34D-8D4464D62737}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E7F8DCC-FCB7-4C48-9BE9-595F8D70E05F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E7F8DCC-FCB7-4C48-9BE9-595F8D70E05F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E7F8DCC-FCB7-4C48-9BE9-595F8D70E05F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E7F8DCC-FCB7-4C48-9BE9-595F8D70E05F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2DA677D8-B322-4527-9193-8738123FC5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DA677D8-B322-4527-9193-8738123FC5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DA677D8-B322-4527-9193-8738123FC5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DA677D8-B322-4527-9193-8738123FC5E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED5AE9E4-661E-4418-B09A-12DAFE0399B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED5AE9E4-661E-4418-B09A-12DAFE0399B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED5AE9E4-661E-4418-B09A-12DAFE0399B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED5AE9E4-661E-4418-B09A-12DAFE0399B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A6687FC-5768-4DDE-B34A-B1D04E262D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A6687FC-5768-4DDE-B34A-B1D04E262D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A6687FC-5768-4DDE-B34A-B1D04E262D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A6687FC-5768-4DDE-B34A-B1D04E262D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A5C4257-0B92-49FB-81A6-A5B0DFD317EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A5C4257-0B92-49FB-81A6-A5B0DFD317EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A5C4257-0B92-49FB-81A6-A5B0DFD317EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A5C4257-0B92-49FB-81A6-A5B0DFD317EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E29A093-4506-4CAA-81DD-DFDF8AB68E6E}
 	EndGlobalSection
 EndGlobal
